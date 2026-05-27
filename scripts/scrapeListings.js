@@ -3,6 +3,8 @@ import fs from 'fs';
 import path from 'path';
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, query, where, getDocs, addDoc, serverTimestamp } from "firebase/firestore";
+import { GoogleGenAI } from "@google/genai";
+import "dotenv/config";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA2BIvH0HTFJ4clvx5aQ1tinfcg34YIChI",
@@ -17,6 +19,16 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const BOT_USER_ID = "XsU0w8gUmzW6UkCP31Cii5P1Q5U2";
+
+// Initialize Gemini AI
+let ai = null;
+if (process.env.GEMINI_API_KEY) {
+  ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+  console.log("Gemini AI API Key found. AI-powered parsing is enabled!");
+} else {
+  console.log("No Gemini AI API Key found. Falling back to robust regex parsing.");
+}
+
 
 // Wilaya lists and mappings
 const wilayasList = [
@@ -60,6 +72,57 @@ async function saveToFirestore(listingData) {
   } catch (error) {
     console.error("Error saving listing to Firestore:", error);
     throw error;
+  }
+}
+
+// Parse page text using Gemini AI
+async function parseListingTextWithAI(text, titleCandidate) {
+  if (!ai) {
+    return parseListingText(text, titleCandidate);
+  }
+
+  try {
+    const prompt = `
+You are an expert real estate data parser for the Algerian market.
+Analyze the following raw text from a property listing on Ouedkniss.com, and extract the structured information in JSON format.
+
+Raw Text:
+"""
+${text}
+"""
+
+Title candidate: "${titleCandidate}"
+
+Extract and output ONLY a valid JSON object matching the following structure (no markdown formatting, no other text):
+{
+  "title": "string (the main title, in French or Arabic, or cleaned title candidate)",
+  "category": "string (either 'sell' or 'leisure'. Set 'leisure' ONLY if it's a short-term/vacation rental, otherwise 'sell')",
+  "transactionType": "string (either 'rent' for Location/Rent or 'buy' for Vente/Buy)",
+  "propertyType": "string (must be one of: 'apartment', 'house', 'villa', 'studio', 'commercial', 'land')",
+  "price": number (the price in DZD/DA, e.g. 7000 for 7000 DA, 13500000 for 13.5 Million, 38000000 for 3.8 Billion/Milliard. Convert millions and milliards to absolute DA numbers)",
+  "priceUnit": "string (must be one of: 'per-month' for long term rentals, 'total' for sales, 'per-night' for vacation/leisure rentals)",
+  "rooms": number (number of rooms, default to 1 if not specified or land),
+  "surface": number (surface area in m², default to 80 if not specified),
+  "furnished": boolean (true if it's furnished or has 'مفروش' or 'Meublé', otherwise false),
+  "description": "string (the main description text of the listing)",
+  "phone": "string (extract a 10 digit Algerian mobile number starting with 05, 06, or 07, stripped of spaces, e.g. '0652329227')",
+  "city": "string (match the location to one of these exact Algerian wilaya names: 'Adrar', 'Chlef', 'Laghouat', 'Oum El Bouaghi', 'Batna', 'Béjaïa', 'Biskra', 'Béchar', 'Blida', 'Bouira', 'Tamanrasset', 'Tébessa', 'Tlemcen', 'Tiaret', 'Tizi Ouzou', 'Alger', 'Djelfa', 'Jijel', 'Sétif', 'Saïda', 'Skikda', 'Sidi Bel Abbès', 'Annaba', 'Guelma', 'Constantine', 'Médéa', 'Mostaganem', 'M\\'Sila', 'Mascara', 'Ouargla', 'Oran', 'El Bayadh', 'Illizi', 'Bordj Bou Arréridj', 'Boumerdès', 'El Tarf', 'Tindouf', 'Tissemsilt', 'El Oued', 'Khenchela', 'Souk Ahras', 'Tipaza', 'Mila', 'Aïn Defla', 'Naama', 'Aïn Témouchent', 'Ghardaïa', 'Relizane')"
+}
+`;
+
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: prompt,
+      config: {
+        responseMimeType: 'application/json'
+      }
+    });
+
+    const parsedJson = JSON.parse(response.text.trim());
+    return parsedJson;
+  } catch (error) {
+    console.error("AI parsing failed, falling back to regex:", error.message);
+    return parseListingText(text, titleCandidate);
   }
 }
 
@@ -339,7 +402,7 @@ async function scrape() {
 
       const bodyText = await page.evaluate(() => document.body.innerText);
 
-      const parsed = parseListingText(bodyText, titleCandidate);
+      const parsed = await parseListingTextWithAI(bodyText, titleCandidate);
       parsed.images = images;
       parsed.ouedknissId = ouedknissId;
       parsed.userId = BOT_USER_ID;
