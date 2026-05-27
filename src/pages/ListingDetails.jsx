@@ -6,6 +6,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { useRecentListings } from '../hooks/useRecentListings';
 import { formatPrice } from '../utils/formatPrice';
 import ImageCarousel from '../components/ImageCarousel';
+import RecentListings from '../components/RecentListings';
 import { FiMapPin, FiPhone, FiMessageCircle, FiArrowLeft } from 'react-icons/fi';
 import './ListingDetails.css';
 
@@ -101,6 +102,10 @@ const ListingDetails = () => {
               </a>
             </div>
           </div>
+        </div>
+
+        <div style={{ marginTop: '64px', paddingTop: '40px', borderTop: '1px solid var(--border-color)' }}>
+          <RecentListings />
         </div>
       </div>
     </div>

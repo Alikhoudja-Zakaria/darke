@@ -53,14 +53,16 @@ const RecentListings = () => {
         className="recent-grid" 
         style={{ 
           display: 'flex', 
-          gap: '24px', 
+          gap: '16px', 
           overflowX: 'auto', 
           paddingBottom: '16px',
-          scrollSnapType: 'x mandatory'
+          scrollSnapType: 'x mandatory',
+          margin: '0 -16px',
+          padding: '0 16px'
         }}
       >
         {recentListings.map(listing => (
-          <div key={listing.id} style={{ minWidth: '300px', maxWidth: '350px', scrollSnapAlign: 'start' }}>
+          <div key={listing.id} className="recent-card-wrapper">
             <PropertyCard listing={listing} />
           </div>
         ))}
@@ -71,15 +73,34 @@ const RecentListings = () => {
           height: 8px;
         }
         .recent-grid::-webkit-scrollbar-track {
-          background: #F3F4F6;
-          border-radius: 4px;
+          background: transparent;
         }
         .recent-grid::-webkit-scrollbar-thumb {
           background: #D1D5DB;
           border-radius: 4px;
         }
-        .recent-grid::-webkit-scrollbar-thumb:hover {
-          background: #9CA3AF;
+        .recent-card-wrapper {
+          min-width: 300px;
+          max-width: 320px;
+          scroll-snap-align: start;
+        }
+        @media (max-width: 768px) {
+          .recent-card-wrapper {
+            min-width: 240px;
+            max-width: 240px;
+          }
+          .recent-card-wrapper .carousel-container {
+            height: 180px; /* Make image carousel shorter on small recent cards */
+          }
+          .recent-card-wrapper .card-content {
+            padding: 12px;
+          }
+          .recent-card-wrapper .card-title {
+            font-size: 1.1rem !important;
+          }
+          .recent-card-wrapper .card-price {
+            font-size: 1rem !important;
+          }
         }
       `}</style>
     </div>
