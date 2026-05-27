@@ -1,0 +1,17 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.badge-new { background-color: var(--badge-new); }
+.badge-featured { background-color: var(--badge-featured); color: var(--text-primary); }
+.badge-verified { background-color: var(--badge-verified); }
+.badge-drop { background-color: var(--badge-drop); }

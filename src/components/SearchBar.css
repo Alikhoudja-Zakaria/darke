@@ -1,0 +1,115 @@
+.search-bar-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-input-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.search-input-container:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(13, 148, 136, 0.2);
+}
+
+.search-icon {
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+  margin-right: 12px;
+}
+
+[dir="rtl"] .search-icon {
+  margin-right: 0;
+  margin-left: 12px;
+}
+
+.search-input {
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.search-clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  padding: 4px;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+
+[dir="rtl"] .search-clear-btn {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+.search-clear-btn:hover {
+  background-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 8px;
+  background-color: var(--card-bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  list-style: none;
+  padding: 8px 0;
+  z-index: 50;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.suggestion-item:hover {
+  background-color: var(--bg-color);
+}
+
+.suggestion-icon {
+  color: var(--text-secondary);
+  margin-right: 12px;
+}
+
+[dir="rtl"] .suggestion-icon {
+  margin-right: 0;
+  margin-left: 12px;
+}
+
+.suggestion-text {
+  flex-grow: 1;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.suggestion-badge {
+  font-size: 0.75rem;
+  background-color: var(--bg-color);
+  color: var(--text-secondary);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+}

@@ -1,0 +1,118 @@
+.listing-details {
+  padding: 32px 0;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.btn-back:hover {
+  color: var(--text-primary);
+}
+
+.details-header {
+  margin-bottom: 24px;
+}
+
+.details-title {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.details-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.details-image-gallery {
+  margin-bottom: 32px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.details-image-gallery .carousel-container {
+  height: 480px;
+}
+
+.details-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+}
+
+.details-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.details-specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.details-description {
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.details-description h3 {
+  margin-bottom: 16px;
+  font-size: 1.25rem;
+}
+
+.contact-card {
+  padding: 24px;
+  position: sticky;
+  top: 100px;
+}
+
+.contact-card h3 {
+  margin-bottom: 16px;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.contact-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.contact-btn.whatsapp {
+  background-color: #25D366;
+  color: white;
+}
+
+.contact-btn.whatsapp:hover {
+  background-color: #1EBE5D;
+}
+
+@media (max-width: 768px) {
+  .details-content {
+    grid-template-columns: 1fr;
+  }
+  .details-image-gallery .carousel-container {
+    height: 300px;
+  }
+}

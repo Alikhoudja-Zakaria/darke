@@ -1,0 +1,46 @@
+.home-page {
+  min-height: calc(100vh - 72px - 200px); /* Adjust based on navbar/footer height */
+}
+
+.hero-section {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+  background-image: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 32px;
+  opacity: 0.9;
+}
+
+.hero-search {
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.home-content {
+  margin-top: -32px;
+  position: relative;
+  z-index: 20;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 0 80px 0;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+}
