@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropertyCard from './PropertyCard';
 import { useLanguage } from '../context/LanguageContext';
+import { FiGrid, FiList } from 'react-icons/fi';
 import './ListingGrid.css';
 
 const ListingGrid = ({ listings, loading, renderActions }) => {
   const { t } = useLanguage();
+  const [viewMode, setViewMode] = useState('grid');
 
   if (loading) {
     return (
@@ -35,10 +37,24 @@ const ListingGrid = ({ listings, loading, renderActions }) => {
   }
 
   return (
-    <div className="listing-grid">
-      {listings.map(listing => (
-        <PropertyCard key={listing.id} listing={listing} renderActions={renderActions} />
-      ))}
+    <div className="listing-grid-container">
+      <div className="listing-grid-controls">
+        <button 
+          className="btn-view-toggle"
+          onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')}
+        >
+          {viewMode === 'grid' ? (
+            <><FiList /> {t('misc.better_view') || 'Vue détaillée'}</>
+          ) : (
+            <><FiGrid /> {t('misc.compact_view') || 'Vue compacte'}</>
+          )}
+        </button>
+      </div>
+      <div className={`listing-grid ${viewMode}`}>
+        {listings.map(listing => (
+          <PropertyCard key={listing.id} listing={listing} renderActions={renderActions} />
+        ))}
+      </div>
     </div>
   );
 };

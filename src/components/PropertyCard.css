@@ -5,6 +5,53 @@
   height: 100%;
 }
 
+@media (max-width: 768px) {
+  .property-card .carousel-container {
+    height: 240px;
+  }
+}
+
+/* Compact mode for mobile (2 in one row) */
+@media (max-width: 768px) {
+  .listing-grid.grid .property-card .carousel-container {
+    height: 140px;
+  }
+  .listing-grid.grid .property-card .card-content {
+    padding: 10px;
+  }
+  .listing-grid.grid .property-card .card-title {
+    font-size: 1rem !important;
+    margin-bottom: 4px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .listing-grid.grid .property-card .card-price {
+    font-size: 0.95rem !important;
+    margin-bottom: 8px !important;
+  }
+  .listing-grid.grid .property-card .price-unit {
+    display: block; /* Break line for unit if space is tight */
+    margin-left: 0 !important;
+  }
+  .listing-grid.grid .property-card .card-specs {
+    font-size: 0.8rem;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .listing-grid.grid .property-card .card-location {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .listing-grid.grid .property-card .badge {
+    padding: 2px 6px;
+    font-size: 0.65rem;
+  }
+}
+
 .card-image-wrapper {
   position: relative;
 }

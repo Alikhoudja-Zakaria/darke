@@ -53,12 +53,10 @@ const RecentListings = () => {
         className="recent-grid" 
         style={{ 
           display: 'flex', 
-          gap: '16px', 
+          gap: '12px', 
           overflowX: 'auto', 
           paddingBottom: '16px',
-          scrollSnapType: 'x mandatory',
-          margin: '0 -16px',
-          padding: '0 16px'
+          scrollSnapType: 'x mandatory'
         }}
       >
         {recentListings.map(listing => (
@@ -70,47 +68,52 @@ const RecentListings = () => {
       
       <style>{`
         .recent-grid::-webkit-scrollbar {
-          height: 8px;
+          height: 6px;
         }
         .recent-grid::-webkit-scrollbar-track {
           background: transparent;
         }
         .recent-grid::-webkit-scrollbar-thumb {
-          background: #D1D5DB;
+          background: #E5E7EB;
           border-radius: 4px;
         }
         .recent-card-wrapper {
-          min-width: 220px;
-          max-width: 240px;
+          min-width: 160px;
+          max-width: 160px;
           scroll-snap-align: start;
         }
         .recent-card-wrapper .carousel-container {
-          height: 160px;
+          height: 120px;
         }
         .recent-card-wrapper .card-content {
-          padding: 10px;
+          padding: 8px;
         }
         .recent-card-wrapper .card-title {
-          font-size: 1rem !important;
+          font-size: 0.85rem !important;
           margin-bottom: 4px !important;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
         .recent-card-wrapper .card-price {
-          font-size: 0.95rem !important;
-          margin-bottom: 8px !important;
+          font-size: 0.9rem !important;
+          margin-bottom: 4px !important;
+        }
+        .recent-card-wrapper .card-location {
+          font-size: 0.75rem;
+          margin-bottom: 4px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
         .recent-card-wrapper .card-specs {
-          font-size: 0.8rem;
+          font-size: 0.75rem;
           gap: 4px;
+          flex-wrap: wrap;
         }
-
-        @media (max-width: 768px) {
-          .recent-card-wrapper {
-            min-width: 200px;
-            max-width: 200px;
-          }
-          .recent-card-wrapper .carousel-container {
-            height: 140px; 
-          }
+        .recent-card-wrapper .badge {
+          padding: 2px 6px;
+          font-size: 0.65rem;
         }
       `}</style>
     </div>
