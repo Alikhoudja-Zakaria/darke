@@ -25,7 +25,7 @@ const ImageCarousel = ({ images, isDetails = false }) => {
       >
         {images.map((src, idx) => (
           <SwiperSlide key={idx}>
-            <img src={src} alt={`Vue ${idx + 1}`} className="carousel-image" />
+            <img src={src} alt={`Vue ${idx + 1}`} className="carousel-image" loading="lazy" />
           </SwiperSlide>
         ))}
       </Swiper>

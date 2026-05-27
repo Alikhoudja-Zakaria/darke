@@ -1,9 +1,42 @@
 .filter-bar {
-  background-color: var(--card-bg);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
   padding: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
+  border: 1px solid var(--border-color);
+}
+
+.filter-transaction-type {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 16px;
+}
+
+.filter-type-btn {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: white;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+
+.filter-type-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.filter-type-btn.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
 }
 
 .filter-main {

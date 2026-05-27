@@ -31,12 +31,7 @@ const PropertyCard = ({ listing, renderActions }) => {
         <ImageCarousel images={listing.images} />
         
         <div className="card-badges-top">
-          {isNew && <Badge type="new">{t('listing.new')}</Badge>}
-          {listing.category === 'leisure' ? (
-            <Badge type="verified">{t('nav.leisure')}</Badge>
-          ) : (
-            <Badge type="featured">{listing.transactionType === 'buy' ? t('home.buy') : t('home.rent')}</Badge>
-          )}
+          {isNew && <div className="badge-new-dot" title={t('listing.new')}></div>}
         </div>
         
         <button 
@@ -49,10 +44,13 @@ const PropertyCard = ({ listing, renderActions }) => {
       </div>
 
       <div className="card-content">
-        <div className="card-price">
+
+        <h3 className="card-title" style={{ fontSize: '1.25rem', marginBottom: '8px', color: '#111827' }}>{listing.title}</h3>
+        
+        <div className="card-price" style={{ fontSize: '1.1rem', color: 'var(--primary-color)', fontWeight: 'bold', marginBottom: '12px' }}>
           {formatPrice(listing.price, lang)} 
           {listing.priceUnit && listing.priceUnit !== 'total' && (
-            <span className="price-unit">
+            <span className="price-unit" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginLeft: '4px' }}>
               {listing.priceUnit === 'per-month' ? t('listing.per_month') : 
                listing.priceUnit === 'per-night' ? t('listing.per_night') : 
                listing.priceUnit === 'per-week' ? t('listing.per_week') : ''}
@@ -60,16 +58,26 @@ const PropertyCard = ({ listing, renderActions }) => {
           )}
         </div>
         
-        <h3 className="card-title">{listing.title}</h3>
-        
         <div className="card-location">
           <FiMapPin /> {listing.city}
         </div>
         
-        <div className="card-specs">
-          {listing.rooms > 0 && <span className="spec-item">🛏 {listing.rooms} {t('listing.rooms')}</span>}
-          {listing.bathrooms > 0 && <span className="spec-item">🚿 {listing.bathrooms} {t('listing.baths')}</span>}
-          {listing.surface > 0 && <span className="spec-item">📐 {listing.surface} {t('listing.surface')}</span>}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginTop: 'auto' }}>
+          <div className="card-specs" style={{ margin: 0 }}>
+            {listing.rooms > 0 && <span className="spec-item">🛏 {listing.rooms}</span>}
+            {listing.bathrooms > 0 && <span className="spec-item">🚿 {listing.bathrooms}</span>}
+            {listing.surface > 0 && <span className="spec-item">📐 {listing.surface}</span>}
+          </div>
+          
+          <div style={{ transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
+            {listing.category === 'leisure' ? (
+              <Badge type="verified">{t('nav.leisure')}</Badge>
+            ) : listing.transactionType === 'buy' ? (
+              <Badge type="featured">{t('home.buy')}</Badge>
+            ) : (
+              <Badge type="rent">{t('home.rent')}</Badge>
+            )}
+          </div>
         </div>
         
         {renderActions && (

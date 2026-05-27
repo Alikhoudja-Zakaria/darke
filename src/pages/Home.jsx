@@ -61,6 +61,10 @@ const Home = () => {
         );
       }
 
+      if (filters.transactionType && filters.transactionType !== 'all') {
+        filteredResults = filteredResults.filter(item => item.transactionType === filters.transactionType);
+      }
+
       if (filters.city) {
         filteredResults = filteredResults.filter(item => item.city === filters.city);
       }
@@ -132,6 +136,11 @@ const Home = () => {
           item.title?.toLowerCase().includes(searchQuery.toLowerCase())
         );
       }
+      
+      if (filters.transactionType && filters.transactionType !== 'all') {
+        filteredResults = filteredResults.filter(item => item.transactionType === filters.transactionType);
+      }
+
       if (filters.city) filteredResults = filteredResults.filter(item => item.city === filters.city);
       if (filters.propertyType) filteredResults = filteredResults.filter(item => item.propertyType === filters.propertyType);
       if (filters.minPrice) filteredResults = filteredResults.filter(item => item.price >= parseInt(filters.minPrice));
