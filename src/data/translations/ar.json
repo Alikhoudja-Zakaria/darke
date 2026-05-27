@@ -17,6 +17,8 @@
     "leisure_subtitle": "ابحث عن الإيجار المثالي لعطلتك"
   },
   "filters": {
+    "all": "الكل",
+    "hide": "إخفاء الفلاتر",
     "city": "المدينة",
     "property_type": "نوع العقار",
     "price_range": "الميزانية",
@@ -39,9 +41,13 @@
     "new": "جديد",
     "featured": "مميز",
     "price_drop": "تخفيض السعر",
-    "verified": "موثوق",
+    "verified": "موثق",
     "contact": "اتصل",
+    "call": "اتصال",
     "whatsapp": "رسالة واتساب",
+    "share": "مشاركة",
+    "copied": "تم نسخ الرابط!",
+    "published_by": "نشرت من قبل",
     "rooms": "غرف",
     "baths": "حمامات",
     "surface": "م²",
@@ -135,10 +141,20 @@
     "made_in": "صنع في الجزائر 🇩🇿"
   },
   "misc": {
+    "better_view": "عرض مفصل",
+    "compact_view": "عرض مدمج",
     "yes": "نعم",
     "no": "لا",
     "recent": "حديث",
     "loading": "جاري التحميل...",
-    "not_found": "الإعلان غير موجود."
+    "not_found": "الإعلان غير موجود.",
+    "no_favorites_title": "ليس لديك مفضلة بعد",
+    "no_favorites_desc": "انقر على القلب في الإعلان لحفظه هنا."
+  },
+  "profile": {
+    "title": "الملف الشخصي لـ",
+    "joined": "عضو منذ",
+    "active_listings": "إعلانات نشطة",
+    "no_listings": "لا يوجد لدى هذا المستخدم إعلانات نشطة."
   }
 }

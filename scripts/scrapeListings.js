@@ -366,18 +366,22 @@ async function scrape() {
       }
     }
 
+    let detailPage = null;
     try {
-      await page.goto(detailUrl, { waitUntil: 'networkidle2', timeout: 60000 });
+      detailPage = await browser.newPage();
+      await detailPage.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36');
+      
+      await detailPage.goto(detailUrl, { waitUntil: 'networkidle2', timeout: 60000 });
       await new Promise(resolve => setTimeout(resolve, 2000));
 
       // Extract listing title candidate
-      const titleCandidate = await page.evaluate(() => {
+      const titleCandidate = await detailPage.evaluate(() => {
         const h1 = document.querySelector('h1');
         return h1 ? h1.innerText.trim() : '';
       });
 
       // Extract images (filter out icons and trackers)
-      const images = await page.evaluate(() => {
+      const images = await detailPage.evaluate(() => {
         const imgs = Array.from(document.querySelectorAll('img'));
         return imgs
           .map(img => img.src)
@@ -385,7 +389,7 @@ async function scrape() {
       });
 
       // Click contact button
-      const clicked = await page.evaluate(() => {
+      const clicked = await detailPage.evaluate(() => {
         const buttons = Array.from(document.querySelectorAll('button'));
         const contactBtn = buttons.find(b => b.innerText.includes('إتصال') || b.innerText.includes('Contact') || b.innerText.includes('Appeler') || b.className.includes('bg-blue-darken-2'));
         if (contactBtn) {
@@ -400,7 +404,7 @@ async function scrape() {
         await new Promise(resolve => setTimeout(resolve, 2500));
       }
 
-      const bodyText = await page.evaluate(() => document.body.innerText);
+      const bodyText = await detailPage.evaluate(() => document.body.innerText);
 
       const parsed = await parseListingTextWithAI(bodyText, titleCandidate);
       parsed.images = images;
@@ -449,11 +453,21 @@ async function scrape() {
 
     } catch (err) {
       console.error(`Error processing listing ${detailUrl}:`, err.message);
+    } finally {
+      if (detailPage) {
+        try {
+          await detailPage.close();
+        } catch (e) {}
+      }
     }
   }
 
   console.log(`Scraping complete. Successfully processed: ${successCount} listings.`);
-  await browser.close();
+  try {
+    await browser.close();
+  } catch (err) {
+    console.log('Browser closed with minor cleanup warning:', err.message);
+  }
   process.exit(0);
 }
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useLanguage } from '../context/LanguageContext';
@@ -7,8 +7,9 @@ import { useRecentListings } from '../hooks/useRecentListings';
 import { formatPrice } from '../utils/formatPrice';
 import ImageCarousel from '../components/ImageCarousel';
 import RecentListings from '../components/RecentListings';
-import { FiMapPin, FiPhone, FiMessageCircle, FiArrowLeft } from 'react-icons/fi';
+import { FiMapPin, FiPhone, FiMessageCircle, FiArrowLeft, FiShare2, FiUser } from 'react-icons/fi';
 import './ListingDetails.css';
+import '../pages/UserProfile.css';
 
 const ListingDetails = () => {
   const { id } = useParams();
@@ -16,8 +17,10 @@ const ListingDetails = () => {
   const { t, lang } = useLanguage();
   const { addRecentListing } = useRecentListings();
   const [listing, setListing] = useState(null);
+  const [seller, setSeller] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [toast, setToast] = useState('');
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -25,8 +28,21 @@ const ListingDetails = () => {
         const docRef = doc(db, 'listings', id);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists() && docSnap.data().status === 'active') {
-          setListing({ id: docSnap.id, ...docSnap.data() });
+          const data = docSnap.data();
+          setListing({ id: docSnap.id, ...data });
           addRecentListing(docSnap.id);
+          
+          if (data.userId) {
+            try {
+              const userRef = doc(db, 'users', data.userId);
+              const userSnap = await getDoc(userRef);
+              if (userSnap.exists()) {
+                setSeller(userSnap.data());
+              }
+            } catch (err) {
+              console.error("Error fetching seller:", err);
+            }
+          }
         } else {
           setError(t('misc.not_found') || "Annonce introuvable.");
         }
@@ -39,8 +55,26 @@ const ListingDetails = () => {
     fetchListing();
   }, [id]);
 
-  if (loading) return <div className="container" style={{ padding: '40px 0' }}>Chargement...</div>;
-  if (!listing) return <div className="container" style={{ padding: '40px 0' }}>Annonce introuvable.</div>;
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: listing.title,
+          text: `Découvrez cette annonce sur Darkoum : ${listing.title}`,
+          url: window.location.href,
+        });
+      } catch (err) {
+        console.error("Error sharing:", err);
+      }
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      setToast(t('listing.copied') || 'Lien copié !');
+      setTimeout(() => setToast(''), 3000);
+    }
+  };
+
+  if (loading) return <div className="container" style={{ padding: '40px 0' }}>{t('misc.loading') || 'Chargement...'}</div>;
+  if (!listing) return <div className="container" style={{ padding: '40px 0' }}>{t('misc.not_found') || 'Annonce introuvable.'}</div>;
 
   return (
     <div className="listing-details">
@@ -49,11 +83,16 @@ const ListingDetails = () => {
           <FiArrowLeft /> {t('listing.back') || 'Retour'}
         </button>
         
-        <div className="details-header">
-          <h1 className="details-title">{listing.title}</h1>
-          <div className="details-location">
-            <FiMapPin /> {listing.city}
+        <div className="details-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+          <div>
+            <h1 className="details-title">{listing.title}</h1>
+            <div className="details-location">
+              <FiMapPin /> {listing.city}
+            </div>
           </div>
+          <button className="btn-outline" onClick={handleShare} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <FiShare2 /> {t('listing.share') || 'Partager'}
+          </button>
         </div>
 
         <div className="details-image-gallery">
@@ -86,20 +125,43 @@ const ListingDetails = () => {
           </div>
 
           <div className="details-sidebar">
+            {listing.userId && (
+              <Link to={`/user/${listing.userId}`} className="seller-profile-badge">
+                <div className="seller-avatar">
+                  {seller?.displayName ? seller.displayName.charAt(0).toUpperCase() : <FiUser />}
+                </div>
+                <div className="seller-info">
+                  <span className="seller-label">{t('listing.published_by') || 'Publiée par'}</span>
+                  <span className="seller-name">{seller?.displayName || 'Utilisateur'}</span>
+                </div>
+              </Link>
+            )}
+
             <div className="card contact-card">
               <h3>{t('listing.contact_owner') || 'Contacter le propriétaire'}</h3>
               <div className="contact-info">
                 <FiPhone /> <span>{listing.phone || t('listing.not_provided') || 'Non renseigné'}</span>
               </div>
               
-              <a 
-                href={`https://wa.me/213${listing.phone?.replace(/^0/, '')}?text=Bonjour, je suis intéressé(e) par votre annonce : ${listing.title}`}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-accent contact-btn whatsapp"
-              >
-                <FiMessageCircle /> {t('listing.whatsapp')}
-              </a>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <a 
+                  href={`tel:${listing.phone}`}
+                  className="btn-primary contact-btn"
+                  style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+                >
+                  <FiPhone /> {t('listing.call') || 'Appeler'}
+                </a>
+                
+                <a 
+                  href={`https://wa.me/213${listing.phone?.replace(/^0/, '')}?text=Bonjour, je suis intéressé(e) par votre annonce : ${listing.title}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-accent contact-btn whatsapp"
+                  style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+                >
+                  <FiMessageCircle /> {t('listing.whatsapp')}
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -108,6 +170,12 @@ const ListingDetails = () => {
           <RecentListings />
         </div>
       </div>
+      
+      {toast && (
+        <div className="toast-notification">
+          {toast}
+        </div>
+      )}
     </div>
   );
 };

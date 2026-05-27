@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FiHeart, FiMapPin } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
 import { useFavorites } from '../hooks/useFavorites';
@@ -9,7 +9,6 @@ import ImageCarousel from './ImageCarousel';
 import './PropertyCard.css';
 
 const PropertyCard = ({ listing, renderActions }) => {
-  const navigate = useNavigate();
   const { t, lang } = useLanguage();
   const { isFavorite, toggleFavorite } = useFavorites();
   const favorite = isFavorite(listing.id);
@@ -21,12 +20,12 @@ const PropertyCard = ({ listing, renderActions }) => {
   const isNew = createdAtTime ? (Date.now() - createdAtTime) < 7 * 24 * 60 * 60 * 1000 : false;
   
   const handleFavoriteClick = (e) => {
-    e.stopPropagation();
+    e.preventDefault();
     toggleFavorite(listing.id);
   };
 
   return (
-    <div className="card property-card" onClick={() => navigate(`/listing/${listing.id}`)}>
+    <Link to={`/listing/${listing.id}`} className="card property-card" style={{ textDecoration: 'none', color: 'inherit', display: 'block', position: 'relative' }}>
       <div className="card-image-wrapper">
         <ImageCarousel images={listing.images} />
         
@@ -38,6 +37,7 @@ const PropertyCard = ({ listing, renderActions }) => {
           className={`card-favorite-btn ${favorite ? 'active' : ''}`}
           onClick={handleFavoriteClick}
           aria-label="Save to favorites"
+          style={{ position: 'absolute', top: '12px', right: '12px', zIndex: 10 }}
         >
           <FiHeart className={favorite ? 'heart-filled' : ''} />
         </button>
@@ -81,12 +81,12 @@ const PropertyCard = ({ listing, renderActions }) => {
         </div>
         
         {renderActions && (
-          <div className="card-actions" style={{ marginTop: '16px', paddingTop: '16px', borderTop: '1px solid #E5E7EB', display: 'flex', gap: '8px' }}>
+          <div className="card-actions" onClick={(e) => e.preventDefault()}>
             {renderActions(listing)}
           </div>
         )}
       </div>
-    </div>
+    </Link>
   );
 };
 

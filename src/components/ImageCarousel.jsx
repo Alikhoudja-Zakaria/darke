@@ -16,7 +16,7 @@ const ImageCarousel = ({ images, isDetails = false }) => {
   }
 
   return (
-    <div className={`carousel-container ${isDetails ? 'details-mode' : ''}`} onClick={(e) => e.stopPropagation()}>
+    <div className={`carousel-container ${isDetails ? 'details-mode' : ''}`} onClick={(e) => { e.preventDefault(); }}>
       <Swiper
         modules={[Pagination, Navigation]}
         pagination={{ clickable: true }}

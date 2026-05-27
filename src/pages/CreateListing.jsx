@@ -208,7 +208,7 @@ const CreateListing = () => {
   return (
     <div className="container" style={{ padding: '40px 0', maxWidth: '800px' }}>
       <h1 style={{ marginBottom: '24px', textAlign: 'center' }}>
-        {id ? t('post.edit') : t('post.title')}
+        {id ? t('post.title_edit') : t('post.title_new')}
       </h1>
       
       <div className="wizard-progress">
@@ -480,13 +480,13 @@ const CreateListing = () => {
 
         <div className="wizard-actions">
           {step > 1 && (
-            <button className="btn-outline" onClick={() => setStep(s => s - 1)}>
+            <button className="btn-outline" onClick={prevStep}>
               <FiChevronLeft /> {t('post.btn_prev')}
             </button>
           )}
           
           {step < 5 ? (
-            <button className="btn-primary" onClick={() => setStep(s => s + 1)} style={{ marginLeft: 'auto' }}>
+            <button className="btn-primary" onClick={nextStep} style={{ marginLeft: 'auto' }}>
               {t('post.btn_next')} <FiChevronRight />
             </button>
           ) : (

@@ -17,6 +17,8 @@
     "leisure_subtitle": "Trouvez la location parfaite pour vos vacances"
   },
   "filters": {
+    "all": "Tout",
+    "hide": "Masquer les filtres",
     "city": "Ville",
     "property_type": "Type de bien",
     "price_range": "Budget",
@@ -41,7 +43,11 @@
     "price_drop": "Baisse de prix",
     "verified": "Vérifié",
     "contact": "Contacter",
+    "call": "Appeler",
     "whatsapp": "Message WhatsApp",
+    "share": "Partager",
+    "copied": "Lien copié !",
+    "published_by": "Publiée par",
     "rooms": "Pièces",
     "baths": "SdB",
     "surface": "m²",
@@ -135,10 +141,20 @@
     "made_in": "Made in Algeria 🇩🇿"
   },
   "misc": {
+    "better_view": "Vue détaillée",
+    "compact_view": "Vue compacte",
     "yes": "Oui",
     "no": "Non",
     "recent": "Récent",
     "loading": "Chargement...",
-    "not_found": "Annonce introuvable."
+    "not_found": "Annonce introuvable.",
+    "no_favorites_title": "Vous n'avez pas encore de favoris",
+    "no_favorites_desc": "Cliquez sur le cœur d'une annonce pour la sauvegarder ici."
+  },
+  "profile": {
+    "title": "Profil de",
+    "joined": "Membre depuis",
+    "active_listings": "annonces actives",
+    "no_listings": "Cet utilisateur n'a pas d'annonces actives."
   }
 }

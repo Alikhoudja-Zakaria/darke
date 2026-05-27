@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { wilayas } from '../data/cities';
 import './FilterBar.css';
 
-const FilterBar = ({ onFilterChange }) => {
+const FilterBar = ({ onFilterChange, forceLeisureMode }) => {
   const { t } = useLanguage();
   const [showMore, setShowMore] = useState(false);
   const [filters, setFilters] = useState({
@@ -32,26 +32,28 @@ const FilterBar = ({ onFilterChange }) => {
 
   return (
     <div className="filter-bar">
-      <div className="filter-transaction-type">
-        <button 
-          className={`filter-type-btn ${(!filters.transactionType || filters.transactionType === 'all') ? 'active' : ''}`}
-          onClick={() => handleChange('transactionType', 'all')}
-        >
-          {t('filters.all') || 'Tout'}
-        </button>
-        <button 
-          className={`filter-type-btn ${filters.transactionType === 'buy' ? 'active' : ''}`}
-          onClick={() => handleChange('transactionType', 'buy')}
-        >
-          {t('home.buy') || 'Acheter'}
-        </button>
-        <button 
-          className={`filter-type-btn ${filters.transactionType === 'rent' ? 'active' : ''}`}
-          onClick={() => handleChange('transactionType', 'rent')}
-        >
-          {t('home.rent') || 'Louer'}
-        </button>
-      </div>
+      {!forceLeisureMode && (
+        <div className="filter-transaction-type">
+          <button 
+            className={`filter-type-btn ${(!filters.transactionType || filters.transactionType === 'all') ? 'active' : ''}`}
+            onClick={() => handleChange('transactionType', 'all')}
+          >
+            {t('filters.all') || 'Tout'}
+          </button>
+          <button 
+            className={`filter-type-btn ${filters.transactionType === 'buy' ? 'active' : ''}`}
+            onClick={() => handleChange('transactionType', 'buy')}
+          >
+            {t('home.buy') || 'Acheter'}
+          </button>
+          <button 
+            className={`filter-type-btn ${filters.transactionType === 'rent' ? 'active' : ''}`}
+            onClick={() => handleChange('transactionType', 'rent')}
+          >
+            {t('home.rent') || 'Louer'}
+          </button>
+        </div>
+      )}
 
       <div className="filter-main" style={{ display: 'flex', justifyContent: 'center' }}>
         <button 

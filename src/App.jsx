@@ -14,6 +14,8 @@ import Favorites from './pages/Favorites';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import CreateListing from './pages/CreateListing';
+import UserProfile from './pages/UserProfile';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
                 <Route path="/leisure" element={<Leisure />} />
                 <Route path="/favorites" element={<Favorites />} />
                 <Route path="/listing/:id" element={<ListingDetails />} />
+                <Route path="/user/:id" element={<UserProfile />} />
                 <Route path="/login" element={<Login />} />
                 <Route 
                   path="/dashboard" 
@@ -57,6 +60,7 @@ function App() {
               </Routes>
             </main>
             <Footer />
+            <ScrollToTop />
           </div>
         </Router>
       </AuthProvider>

@@ -3,6 +3,12 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.property-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
 @media (max-width: 768px) {

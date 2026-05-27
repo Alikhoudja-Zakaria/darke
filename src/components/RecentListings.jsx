@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useRecentListings } from '../hooks/useRecentListings';
-import { doc, getDoc } from 'firebase/firestore';
+import { collection, getDocs, query, where, documentId } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import PropertyCard from './PropertyCard';
+import { FiChevronUp, FiChevronDown } from 'react-icons/fi';
 
 const RecentListings = () => {
   const { t } = useLanguage();
   const { recentIds } = useRecentListings();
   const [recentListings, setRecentListings] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   useEffect(() => {
     const fetchRecent = async () => {
@@ -21,15 +23,28 @@ const RecentListings = () => {
 
       setLoading(true);
       try {
-        const results = [];
-        for (const id of recentIds) {
-          const docRef = doc(db, 'listings', id);
-          const docSnap = await getDoc(docRef);
-          if (docSnap.exists() && docSnap.data().status === 'active') {
-            results.push({ id: docSnap.id, ...docSnap.data() });
-          }
+        const resultsMap = new Map();
+        const chunkSize = 30;
+        
+        for (let i = 0; i < recentIds.length; i += chunkSize) {
+          const chunk = recentIds.slice(i, i + chunkSize);
+          const q = query(
+            collection(db, 'listings'),
+            where(documentId(), 'in', chunk),
+            where('status', '==', 'active')
+          );
+          const snapshot = await getDocs(q);
+          snapshot.forEach(docSnap => {
+            resultsMap.set(docSnap.id, { id: docSnap.id, ...docSnap.data() });
+          });
         }
-        setRecentListings(results);
+        
+        // Preserve the original order from recentIds
+        const orderedResults = recentIds
+          .map(id => resultsMap.get(id))
+          .filter(Boolean);
+          
+        setRecentListings(orderedResults);
       } catch (error) {
         console.error("Error fetching recent listings:", error);
       } finally {
@@ -46,24 +61,59 @@ const RecentListings = () => {
 
   return (
     <div className="recent-listings" style={{ marginBottom: '40px' }}>
-      <h2 style={{ marginBottom: '16px', fontSize: '1.5rem', color: '#111827' }}>
-        {t('home.recently_viewed')}
-      </h2>
-      <div 
-        className="recent-grid" 
+      <button 
+        onClick={() => setIsCollapsed(!isCollapsed)}
         style={{ 
           display: 'flex', 
-          gap: '12px', 
-          overflowX: 'auto', 
-          paddingBottom: '16px',
-          scrollSnapType: 'x mandatory'
+          alignItems: 'center', 
+          gap: '8px',
+          width: '100%',
+          background: 'none',
+          border: 'none',
+          padding: '0',
+          cursor: 'pointer',
+          marginBottom: '16px',
+          textAlign: 'left'
         }}
       >
-        {recentListings.map(listing => (
-          <div key={listing.id} className="recent-card-wrapper">
-            <PropertyCard listing={listing} />
+        <h2 style={{ fontSize: '1.5rem', color: '#111827', margin: 0 }}>
+          {t('home.recently_viewed')}
+        </h2>
+        <div style={{ 
+          color: '#6B7280', 
+          display: 'flex',
+          transform: isCollapsed ? 'rotate(180deg)' : 'rotate(0deg)',
+          transition: 'transform 0.3s ease-in-out'
+        }}>
+          <FiChevronUp size={24} />
+        </div>
+      </button>
+      
+      <div 
+        style={{
+          display: 'grid',
+          gridTemplateRows: isCollapsed ? '0fr' : '1fr',
+          transition: 'grid-template-rows 0.3s ease-in-out'
+        }}
+      >
+        <div style={{ overflow: 'hidden' }}>
+          <div 
+            className="recent-grid" 
+            style={{ 
+              display: 'flex', 
+              gap: '12px', 
+              overflowX: 'auto', 
+              paddingBottom: '16px',
+              scrollSnapType: 'x mandatory'
+            }}
+          >
+            {recentListings.map(listing => (
+              <div key={listing.id} className="recent-card-wrapper">
+                <PropertyCard listing={listing} />
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
       
       <style>{`

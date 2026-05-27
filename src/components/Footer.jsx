@@ -13,10 +13,10 @@ const Footer = () => {
           <span>Darkoum</span>
         </div>
         <div className="footer-links">
-          <a href="#">{t('footer.about')}</a>
-          <a href="#">{t('footer.contact')}</a>
-          <a href="#">{t('footer.terms')}</a>
-          <a href="#">{t('footer.privacy')}</a>
+          <a href="#!" onClick={e => e.preventDefault()}>{t('footer.about')}</a>
+          <a href="#!" onClick={e => e.preventDefault()}>{t('footer.contact')}</a>
+          <a href="#!" onClick={e => e.preventDefault()}>{t('footer.terms')}</a>
+          <a href="#!" onClick={e => e.preventDefault()}>{t('footer.privacy')}</a>
         </div>
         <div className="footer-made-in">
           {t('footer.made_in')}

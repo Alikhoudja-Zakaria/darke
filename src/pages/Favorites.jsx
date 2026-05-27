@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useFavorites } from '../hooks/useFavorites';
 import { db } from '../firebase/config';
-import { doc, getDoc } from 'firebase/firestore';
+import { collection, getDocs, query, where, documentId } from 'firebase/firestore';
 import ListingGrid from '../components/ListingGrid';
 
 const Favorites = () => {
@@ -22,13 +22,19 @@ const Favorites = () => {
         }
 
         const results = [];
-        // Fetch each favorite listing from Firestore
-        for (const id of favorites) {
-          const docRef = doc(db, 'listings', id);
-          const docSnap = await getDoc(docRef);
-          if (docSnap.exists() && docSnap.data().status === 'active') {
+        // Firestore 'in' query has a max limit of 30 items
+        const chunkSize = 30;
+        for (let i = 0; i < favorites.length; i += chunkSize) {
+          const chunk = favorites.slice(i, i + chunkSize);
+          const q = query(
+            collection(db, 'listings'),
+            where(documentId(), 'in', chunk),
+            where('status', '==', 'active')
+          );
+          const snapshot = await getDocs(q);
+          snapshot.forEach(docSnap => {
             results.push({ id: docSnap.id, ...docSnap.data() });
-          }
+          });
         }
         
         setListings(results);
@@ -53,8 +59,8 @@ const Favorites = () => {
       ) : (
         <div className="card" style={{ padding: '40px', textAlign: 'center' }}>
           <div style={{ fontSize: '48px', marginBottom: '16px' }}>❤️</div>
-          <h3 style={{ color: '#374151', marginBottom: '8px' }}>Vous n'avez pas encore de favoris</h3>
-          <p style={{ color: '#6B7280' }}>Cliquez sur le cœur d'une annonce pour la sauvegarder ici.</p>
+          <h3 style={{ color: '#374151', marginBottom: '8px' }}>{t('misc.no_favorites_title') || "Vous n'avez pas encore de favoris"}</h3>
+          <p style={{ color: '#6B7280' }}>{t('misc.no_favorites_desc') || "Cliquez sur le cœur d'une annonce pour la sauvegarder ici."}</p>
         </div>
       )}
     </div>

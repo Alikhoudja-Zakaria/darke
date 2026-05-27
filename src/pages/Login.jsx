@@ -42,7 +42,19 @@ const Login = () => {
       navigate('/dashboard');
     } catch (err) {
       console.error(err);
-      setError(err.message || "Une erreur est survenue.");
+      let errorMessage = "Une erreur est survenue.";
+      
+      if (err.code === 'auth/invalid-credential' || err.code === 'auth/wrong-password' || err.code === 'auth/user-not-found') {
+        errorMessage = t('auth.error_invalid_credentials') || "Email ou mot de passe incorrect.";
+      } else if (err.code === 'auth/email-already-in-use') {
+        errorMessage = t('auth.error_email_in_use') || "Cet email est déjà utilisé.";
+      } else if (err.code === 'auth/weak-password') {
+        errorMessage = t('auth.error_weak_password') || "Le mot de passe doit faire au moins 6 caractères.";
+      } else if (err.message) {
+        errorMessage = err.message; // Keep the custom error we throw above
+      }
+      
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
