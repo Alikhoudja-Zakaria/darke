@@ -11,8 +11,9 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="navbar-header">
-      <div className="container navbar-container">
+    <>
+      <header className="navbar-header">
+        <div className="container navbar-container">
         <div className="navbar-logo" onClick={() => navigate('/')}>
           <span className="logo-dk">DK</span>
           <span className="logo-text">Darkoum</span>
@@ -52,6 +53,8 @@ const Navbar = () => {
           )}
         </div>
       </div>
+      </header>
+
       {/* Mobile Bottom Navigation */}
       <nav className="mobile-bottom-nav">
         <Link to="/" className="mobile-nav-item">
@@ -84,7 +87,7 @@ const Navbar = () => {
           </Link>
         )}
       </nav>
-    </header>
+    </>
   );
 };
 

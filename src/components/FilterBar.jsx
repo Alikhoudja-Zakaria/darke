@@ -53,60 +53,60 @@ const FilterBar = ({ onFilterChange }) => {
         </button>
       </div>
 
-      <div className="filter-main">
-        <select 
-          className="filter-select"
-          value={filters.city}
-          onChange={(e) => handleChange('city', e.target.value)}
-        >
-          <option value="">{t('filters.city')}</option>
-          {wilayas.map(city => (
-            <option key={city.id} value={city.name}>{city.name}</option>
-          ))}
-        </select>
-
-        <select 
-          className="filter-select"
-          value={filters.propertyType}
-          onChange={(e) => handleChange('propertyType', e.target.value)}
-        >
-          <option value="">{t('filters.property_type')}</option>
-          <option value="apartment">{t('property_types.apartment')}</option>
-          <option value="house">{t('property_types.house')}</option>
-          <option value="villa">{t('property_types.villa')}</option>
-          <option value="studio">{t('property_types.studio')}</option>
-          <option value="commercial">{t('property_types.commercial')}</option>
-          <option value="land">{t('property_types.land')}</option>
-        </select>
-
-        <div className="filter-price-group">
-          <input 
-            type="number" 
-            placeholder="Min DA" 
-            className="filter-input"
-            value={filters.minPrice}
-            onChange={(e) => handleChange('minPrice', e.target.value)}
-          />
-          <span>-</span>
-          <input 
-            type="number" 
-            placeholder="Max DA" 
-            className="filter-input"
-            value={filters.maxPrice}
-            onChange={(e) => handleChange('maxPrice', e.target.value)}
-          />
-        </div>
-
+      <div className="filter-main" style={{ display: 'flex', justifyContent: 'center' }}>
         <button 
           className="btn-filter-toggle" 
           onClick={() => setShowMore(!showMore)}
+          style={{ width: '100%', maxWidth: '300px', justifyContent: 'center' }}
         >
-          <FiFilter /> {t('filters.more_filters')} <FiChevronDown className={showMore ? 'rotate' : ''} />
+          <FiFilter /> {showMore ? t('filters.hide') || 'Masquer les filtres' : t('filters.more_filters') || 'Plus de filtres'} <FiChevronDown className={showMore ? 'rotate' : ''} />
         </button>
       </div>
 
       {showMore && (
-        <div className="filter-expanded">
+        <div className="filter-expanded" style={{ marginTop: '16px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+          <select 
+            className="filter-select"
+            value={filters.city}
+            onChange={(e) => handleChange('city', e.target.value)}
+          >
+            <option value="">{t('filters.city')}</option>
+            {wilayas.map(city => (
+              <option key={city.id} value={city.name}>{city.name}</option>
+            ))}
+          </select>
+
+          <select 
+            className="filter-select"
+            value={filters.propertyType}
+            onChange={(e) => handleChange('propertyType', e.target.value)}
+          >
+            <option value="">{t('filters.property_type')}</option>
+            <option value="apartment">{t('property_types.apartment')}</option>
+            <option value="house">{t('property_types.house')}</option>
+            <option value="villa">{t('property_types.villa')}</option>
+            <option value="studio">{t('property_types.studio')}</option>
+            <option value="commercial">{t('property_types.commercial')}</option>
+            <option value="land">{t('property_types.land')}</option>
+          </select>
+
+          <div className="filter-price-group">
+            <input 
+              type="number" 
+              placeholder="Min DA" 
+              className="filter-input"
+              value={filters.minPrice}
+              onChange={(e) => handleChange('minPrice', e.target.value)}
+            />
+            <span>-</span>
+            <input 
+              type="number" 
+              placeholder="Max DA" 
+              className="filter-input"
+              value={filters.maxPrice}
+              onChange={(e) => handleChange('maxPrice', e.target.value)}
+            />
+          </div>
           <select 
             className="filter-select"
             value={filters.rooms}

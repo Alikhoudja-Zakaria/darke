@@ -80,26 +80,36 @@ const RecentListings = () => {
           border-radius: 4px;
         }
         .recent-card-wrapper {
-          min-width: 300px;
-          max-width: 320px;
+          min-width: 220px;
+          max-width: 240px;
           scroll-snap-align: start;
         }
+        .recent-card-wrapper .carousel-container {
+          height: 160px;
+        }
+        .recent-card-wrapper .card-content {
+          padding: 10px;
+        }
+        .recent-card-wrapper .card-title {
+          font-size: 1rem !important;
+          margin-bottom: 4px !important;
+        }
+        .recent-card-wrapper .card-price {
+          font-size: 0.95rem !important;
+          margin-bottom: 8px !important;
+        }
+        .recent-card-wrapper .card-specs {
+          font-size: 0.8rem;
+          gap: 4px;
+        }
+
         @media (max-width: 768px) {
           .recent-card-wrapper {
-            min-width: 240px;
-            max-width: 240px;
+            min-width: 200px;
+            max-width: 200px;
           }
           .recent-card-wrapper .carousel-container {
-            height: 180px; /* Make image carousel shorter on small recent cards */
-          }
-          .recent-card-wrapper .card-content {
-            padding: 12px;
-          }
-          .recent-card-wrapper .card-title {
-            font-size: 1.1rem !important;
-          }
-          .recent-card-wrapper .card-price {
-            font-size: 1rem !important;
+            height: 140px; 
           }
         }
       `}</style>
