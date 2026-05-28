@@ -148,6 +148,10 @@
     "recent": "Récent",
     "loading": "Chargement...",
     "not_found": "Annonce introuvable.",
+    "load_more": "Afficher plus",
+    "saved_listings": "Annonces sauvegardées",
+    "recent_desc": "Vous avez consulté ces annonces. N'hésitez pas à les sauvegarder.",
+    "favorites_subtitle": "Retrouvez facilement les annonces qui vous intéressent",
     "no_favorites_title": "Vous n'avez pas encore de favoris",
     "no_favorites_desc": "Cliquez sur le cœur d'une annonce pour la sauvegarder ici."
   },

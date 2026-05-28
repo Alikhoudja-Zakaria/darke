@@ -21,13 +21,14 @@ const PropertyCard = ({ listing, renderActions }) => {
   
   const handleFavoriteClick = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     toggleFavorite(listing.id);
   };
 
   return (
     <Link to={`/listing/${listing.id}`} className="card property-card" style={{ textDecoration: 'none', color: 'inherit', display: 'block', position: 'relative' }}>
       <div className="card-image-wrapper">
-        <ImageCarousel images={listing.images} />
+        <ImageCarousel images={listing.images?.slice(0, 6)} />
         
         <div className="card-badges-top">
           {isNew && <div className="badge-new-dot" title={t('listing.new')}></div>}
@@ -90,4 +91,4 @@ const PropertyCard = ({ listing, renderActions }) => {
   );
 };
 
-export default PropertyCard;
+export default React.memo(PropertyCard);

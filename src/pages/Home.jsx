@@ -55,9 +55,11 @@ const Home = () => {
       let filteredResults = results;
 
       if (searchQuery) {
+        const queryLower = searchQuery.toLowerCase();
         filteredResults = filteredResults.filter(item => 
-          item.city?.toLowerCase().includes(searchQuery.toLowerCase()) || 
-          item.title?.toLowerCase().includes(searchQuery.toLowerCase())
+          item.city?.toLowerCase().includes(queryLower) || 
+          item.title?.toLowerCase().includes(queryLower) ||
+          item.description?.toLowerCase().includes(queryLower)
         );
       }
 
@@ -131,9 +133,11 @@ const Home = () => {
       let filteredResults = results;
 
       if (searchQuery) {
+        const queryLower = searchQuery.toLowerCase();
         filteredResults = filteredResults.filter(item => 
-          item.city?.toLowerCase().includes(searchQuery.toLowerCase()) || 
-          item.title?.toLowerCase().includes(searchQuery.toLowerCase())
+          item.city?.toLowerCase().includes(queryLower) || 
+          item.title?.toLowerCase().includes(queryLower) ||
+          item.description?.toLowerCase().includes(queryLower)
         );
       }
       
@@ -185,9 +189,8 @@ const Home = () => {
               className="btn-outline" 
               onClick={loadMore} 
               disabled={loadingMore}
-              style={{ minWidth: '200px' }}
             >
-              {loadingMore ? 'Chargement...' : 'Afficher plus d\'annonces'}
+              {loadingMore ? (t('misc.loading') || 'Chargement...') : (t('misc.load_more') || 'Afficher plus')}
             </button>
           </div>
         )}

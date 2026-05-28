@@ -51,9 +51,11 @@ const Leisure = () => {
       let filteredResults = results;
       
       if (searchQuery) {
+        const queryLower = searchQuery.toLowerCase();
         filteredResults = filteredResults.filter(item => 
-          item.city?.toLowerCase().includes(searchQuery.toLowerCase()) || 
-          item.title?.toLowerCase().includes(searchQuery.toLowerCase())
+          item.city?.toLowerCase().includes(queryLower) || 
+          item.title?.toLowerCase().includes(queryLower) ||
+          item.description?.toLowerCase().includes(queryLower)
         );
       }
       

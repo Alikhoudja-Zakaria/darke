@@ -1,8 +1,8 @@
 .footer {
-  background-color: var(--card-bg);
+  background-color: white;
   border-top: 1px solid var(--border-color);
   padding: 32px 0;
-  margin-top: 64px;
+  margin-top: var(--section-gap);
 }
 
 .footer-content {
@@ -10,15 +10,21 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
 }
 
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0;
   font-weight: 700;
+  font-size: 1.1rem;
   color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.footer-brand .logo-dk {
+  color: var(--primary-color);
 }
 
 .footer-links {
@@ -28,23 +34,22 @@
 
 .footer-links a {
   color: var(--text-secondary);
-  font-size: 0.875rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color var(--transition-fast);
 }
 
 .footer-links a:hover {
   color: var(--primary-color);
-  text-decoration: underline;
 }
 
 .footer-made-in {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
-  font-weight: 500;
 }
 
 @media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
+  .footer {
+    display: none; /* Hidden on mobile, bottom nav is primary */
   }
 }

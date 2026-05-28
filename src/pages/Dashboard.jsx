@@ -123,7 +123,7 @@ const Dashboard = () => {
   );
 
   return (
-    <div className="container" style={{ padding: '40px 0' }}>
+    <div className="container" style={{ paddingTop: '32px', paddingBottom: '40px' }}>
       <div className="dashboard-header">
         <h1>{t('dashboard.title')}</h1>
         <button onClick={handleLogout} className="btn-logout">
@@ -131,16 +131,16 @@ const Dashboard = () => {
         </button>
       </div>
 
-      <div className="dashboard-profile card" style={{ padding: '24px', marginTop: '24px', marginBottom: '32px' }}>
+      <div className="dashboard-profile card">
         <h2>{t('dashboard.welcome')}, {user.displayName}</h2>
-        <p style={{ color: '#4B5563', margin: '4px 0' }}>{t('auth.email')}: {user.email}</p>
-        <p style={{ color: '#4B5563', margin: '4px 0' }}>{t('auth.phone')}: {user.phone || t('listing.not_provided')}</p>
+        <p>{t('auth.email')}: {user.email}</p>
+        <p>{t('auth.phone')}: {user.phone || t('listing.not_provided')}</p>
       </div>
 
       <div className="dashboard-listings">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+        <div className="dashboard-listings-header">
           <h2>{t('dashboard.my_listings')}</h2>
-          <button className="btn-primary" onClick={() => navigate('/post')} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <button className="btn-primary" onClick={() => navigate('/post')}>
             <FiPlus /> {t('dashboard.new_listing')}
           </button>
         </div>
@@ -156,19 +156,19 @@ const Dashboard = () => {
                   className="btn-outline" 
                   onClick={loadMore} 
                   disabled={loadingMore}
-                  style={{ minWidth: '200px' }}
                 >
-                  {loadingMore ? 'Chargement...' : 'Afficher plus d\'annonces'}
+                  {loadingMore ? (t('misc.loading') || 'Chargement...') : (t('misc.load_more') || 'Afficher plus')}
                 </button>
               </div>
             )}
           </>
         ) : (
-          <div className="card" style={{ padding: '40px', textAlign: 'center' }}>
-            <h3 style={{ color: '#374151', marginBottom: '8px' }}>{t('dashboard.no_listings')}</h3>
-            <p style={{ color: '#6B7280', marginBottom: '24px' }}>{t('dashboard.publish_first')}</p>
+          <div className="card" style={{ padding: '48px', textAlign: 'center' }}>
+            <div style={{ fontSize: '3rem', marginBottom: '16px' }}>🏠</div>
+            <h3 style={{ color: 'var(--text-primary)', marginBottom: '8px', fontWeight: 600 }}>{t('dashboard.no_listings')}</h3>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '24px', fontSize: '0.95rem' }}>{t('dashboard.publish_first')}</p>
             <button className="btn-primary" onClick={() => navigate('/post')}>
-              {t('dashboard.publish_btn')}
+              <FiPlus /> {t('dashboard.publish_btn')}
             </button>
           </div>
         )}

@@ -1,46 +1,53 @@
 .listing-details {
-  padding: 32px 0;
+  padding: 24px 0 40px 0;
 }
 
 .btn-back {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: var(--text-secondary);
   font-weight: 500;
-  margin-bottom: 24px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
 }
 
 .btn-back:hover {
   color: var(--text-primary);
+  background: var(--bg-color);
 }
 
 .details-header {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .details-title {
-  font-size: 2rem;
+  font-size: 1.6rem;
+  font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
 }
 
 .details-location {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: var(--text-secondary);
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .details-image-gallery {
-  margin-bottom: 32px;
-  border-radius: var(--radius-md);
+  margin-bottom: 28px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
 .details-image-gallery .carousel-container {
-  height: 480px;
+  height: 420px;
 }
 
 .details-content {
@@ -50,53 +57,59 @@
 }
 
 .details-price {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--primary-color);
   margin-bottom: 24px;
-  padding-bottom: 24px;
+  padding-bottom: 20px;
   border-bottom: 1px solid var(--border-color);
+  letter-spacing: -0.01em;
 }
 
 .details-specs {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 16px;
-  margin-bottom: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
 }
 
 .details-description {
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--text-primary);
+  font-size: 0.95rem;
 }
 
 .details-description h3 {
-  margin-bottom: 16px;
-  font-size: 1.25rem;
+  margin-bottom: 12px;
+  font-size: 1.15rem;
+  font-weight: 600;
 }
 
 .contact-card {
   padding: 24px;
   position: sticky;
-  top: 100px;
+  top: 72px;
 }
 
 .contact-card h3 {
   margin-bottom: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .contact-info {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 1.25rem;
+  gap: 10px;
+  font-size: 1.15rem;
   font-weight: 600;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .contact-btn {
   width: 100%;
   justify-content: center;
+  border-radius: var(--radius-sm);
 }
 
 .contact-btn.whatsapp {
@@ -113,6 +126,15 @@
     grid-template-columns: 1fr;
   }
   .details-image-gallery .carousel-container {
-    height: 300px;
+    height: 280px;
+  }
+  .details-title {
+    font-size: 1.35rem;
+  }
+  .details-price {
+    font-size: 1.5rem;
+  }
+  .contact-card {
+    position: static;
   }
 }
