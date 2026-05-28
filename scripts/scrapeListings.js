@@ -290,9 +290,22 @@ function parseListingText(text, titleCandidate) {
 
 async function scrape() {
   const isDryRun = process.argv.includes('--dry-run');
-  const targetCount = isDryRun ? 3 : 90; // Scrape 90 items for production (target 80 to 100)
   
-  console.log(`Starting scraper in ${isDryRun ? 'DRY-RUN' : 'PRODUCTION'} mode. Target listings: ${targetCount}`);
+  // Parse starting page (default to 1)
+  let startPage = 1;
+  const startPageIdx = process.argv.indexOf('--start-page');
+  if (startPageIdx !== -1 && process.argv[startPageIdx + 1]) {
+    startPage = parseInt(process.argv[startPageIdx + 1]) || 1;
+  }
+  
+  // Parse target count
+  let targetCount = isDryRun ? 3 : 90;
+  const targetIdx = process.argv.indexOf('--target');
+  if (targetIdx !== -1 && process.argv[targetIdx + 1]) {
+    targetCount = parseInt(process.argv[targetIdx + 1]) || targetCount;
+  }
+  
+  console.log(`Starting scraper in ${isDryRun ? 'DRY-RUN' : 'PRODUCTION'} mode. startPage: ${startPage}, target: ${targetCount}`);
 
   const browser = await puppeteer.launch({
     headless: 'new',
@@ -302,11 +315,13 @@ async function scrape() {
   await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36');
 
   const listingUrls = new Set();
-  let pageNum = 11;
+  let pageNum = startPage;
+  let consecutiveDuplicates = 0;
+  const EARLY_EXIT_THRESHOLD = 8; // Stop if we hit 8 consecutive duplicates
 
   // Step 1: Collect listing URLs
   console.log('--- Collecting Listing URLs ---');
-  while (listingUrls.size < targetCount * 2 && pageNum <= 40) {
+  while (listingUrls.size < targetCount && pageNum <= 100) {
     const listUrl = `https://www.ouedkniss.com/immobilier/${pageNum}`;
     console.log(`Loading list page ${pageNum}: ${listUrl}`);
     try {
@@ -323,12 +338,45 @@ async function scrape() {
         return anchors.map(a => a.href).filter(href => href && href.includes('-d') && href.match(/-d\d+$/));
       });
 
-      hrefs.forEach(href => {
-        if (listingUrls.size < targetCount * 2) {
-          listingUrls.add(href);
+      let pageNewListingsCount = 0;
+      for (const href of hrefs) {
+        if (listingUrls.size >= targetCount) {
+          break;
         }
-      });
-      console.log(`Collected ${listingUrls.size} candidate URLs so far.`);
+
+        const match = href.match(/-d(\d+)$/);
+        if (!match) continue;
+        const ouedknissId = match[1];
+
+        // Skip in-memory duplicates
+        if (listingUrls.has(href)) continue;
+
+        // Check if duplicate in Firestore
+        let exists = false;
+        if (!isDryRun) {
+          exists = await checkIfListingExists(ouedknissId);
+        }
+
+        if (exists) {
+          consecutiveDuplicates++;
+          console.log(`URL ${href} (ID: ${ouedknissId}) already exists in Firestore. Streak count: ${consecutiveDuplicates}`);
+          if (consecutiveDuplicates >= EARLY_EXIT_THRESHOLD) {
+            console.log(`Hit early exit threshold of ${EARLY_EXIT_THRESHOLD} consecutive duplicates. Stopping URL collection.`);
+            break;
+          }
+        } else {
+          consecutiveDuplicates = 0; // Reset streak
+          listingUrls.add(href);
+          pageNewListingsCount++;
+        }
+      }
+
+      console.log(`Page ${pageNum} yielded ${pageNewListingsCount} new listings. Total collected: ${listingUrls.size}/${targetCount}`);
+
+      if (consecutiveDuplicates >= EARLY_EXIT_THRESHOLD) {
+        break; // Break the outer while loop
+      }
+
       pageNum++;
     } catch (err) {
       console.error(`Error loading page ${pageNum}:`, err.message);
@@ -357,7 +405,7 @@ async function scrape() {
 
     console.log(`[${i + 1}/${urlsArray.length}] Processing Ouedkniss ID ${ouedknissId}...`);
 
-    // Check duplicate
+    // Check duplicate (double check)
     if (!isDryRun) {
       const exists = await checkIfListingExists(ouedknissId);
       if (exists) {
