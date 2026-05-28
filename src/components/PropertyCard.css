@@ -6,9 +6,14 @@
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-.property-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+@media (hover: hover) {
+  .property-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+.property-card:active {
+  transform: translateY(1px);
 }
 
 @media (max-width: 768px) {
@@ -107,9 +112,14 @@
   left: 12px;
 }
 
-.card-favorite-btn:hover {
-  transform: scale(1.1);
-  color: var(--error-color);
+@media (hover: hover) {
+  .card-favorite-btn:hover {
+    transform: scale(1.1);
+    color: var(--error-color);
+  }
+}
+.card-favorite-btn:active {
+  transform: scale(0.9);
 }
 
 .card-favorite-btn.active {

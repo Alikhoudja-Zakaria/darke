@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FiArrowUp } from 'react-icons/fi';
+import './ScrollToTop.css';
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,7 +22,7 @@ const ScrollToTop = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
@@ -31,26 +32,8 @@ const ScrollToTop = () => {
 
   return (
     <button 
+      className="scroll-to-top"
       onClick={scrollToTop} 
-      style={{
-        position: 'fixed',
-        bottom: '80px', // Above mobile navbar if any
-        right: '24px',
-        width: '48px',
-        height: '48px',
-        borderRadius: '50%',
-        backgroundColor: 'var(--primary-color)',
-        color: 'white',
-        border: 'none',
-        boxShadow: 'var(--shadow-lg)',
-        cursor: 'pointer',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        zIndex: 999,
-        transition: 'all 0.3s ease-in-out',
-        opacity: isVisible ? 1 : 0,
-      }}
       aria-label="Scroll to top"
     >
       <FiArrowUp size={24} />
