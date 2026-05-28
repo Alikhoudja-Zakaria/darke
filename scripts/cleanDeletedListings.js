@@ -33,6 +33,16 @@ async function clean() {
       const ouedknissId = data.ouedknissId;
       if (!ouedknissId) continue;
 
+      // Deactivate immediately if it has no images
+      const images = data.images;
+      if (!images || !Array.isArray(images) || images.length === 0) {
+        console.log(`[${++checkedCount}/${querySnapshot.size}] Listing ${ouedknissId} has no images. Deactivating in Firestore...`);
+        const docRef = doc(db, 'listings', document.id);
+        await updateDoc(docRef, { status: 'inactive' });
+        deactivatedCount++;
+        continue;
+      }
+
       // Construct Ouedkniss URL or generic format.
       // Since Ouedkniss URLs are like: https://www.ouedkniss.com/slug-d123456
       // We can search them by their unique ID URL or redirect link:

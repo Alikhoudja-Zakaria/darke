@@ -319,6 +319,15 @@ export function localParseListing(text, titleCandidate = '', images = []) {
 
 // Listing Quality Evaluator
 export function evaluateListingQuality(listing, rawText) {
+  // Check if listing has no images first (hard requirement)
+  if (!listing.images || !Array.isArray(listing.images) || listing.images.length === 0) {
+    return {
+      score: 0,
+      reasons: ["No images found (strictly required)"],
+      isHighQuality: false
+    };
+  }
+
   let score = 0;
   const reasons = [];
 

@@ -245,6 +245,10 @@ async function scrape() {
         console.log('Skipping: Price is invalid/empty.');
         continue;
       }
+      if (!parsed.images || parsed.images.length === 0) {
+        console.log('Skipping: Listing has no images.');
+        continue;
+      }
 
       console.log('Parsed Listing Data:', {
         ...parsed,
