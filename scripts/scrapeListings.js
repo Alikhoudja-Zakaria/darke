@@ -20,33 +20,9 @@ const db = getFirestore(app);
 
 const BOT_USER_ID = "XsU0w8gUmzW6UkCP31Cii5P1Q5U2";
 
-// Initialize Gemini AI
-let ai = null;
-if (process.env.GEMINI_API_KEY) {
-  ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-  console.log("Gemini AI API Key found. AI-powered parsing is enabled!");
-} else {
-  console.log("No Gemini AI API Key found. Falling back to robust regex parsing.");
-}
+import { localParseListing } from './localAIParser.js';
 
-
-// Wilaya lists and mappings
-const wilayasList = [
-  "Adrar", "Chlef", "Laghouat", "Oum El Bouaghi", "Batna", "Béjaïa", "Biskra", "Béchar", "Blida", "Bouira",
-  "Tamanrasset", "Tébessa", "Tlemcen", "Tiaret", "Tizi Ouzou", "Alger", "Djelfa", "Jijel", "Sétif", "Saïda",
-  "Skikda", "Sidi Bel Abbès", "Annaba", "Guelma", "Constantine", "Médéa", "Mostaganem", "M'Sila", "Mascara", "Ouargla",
-  "Oran", "El Bayadh", "Illizi", "Bordj Bou Arréridj", "Boumerdès", "El Tarf", "Tindouf", "Tissemsilt", "El Oued", "Khenchela",
-  "Souk Ahras", "Tipaza", "Mila", "Aïn Defla", "Naama", "Aïn Témouchent", "Ghardaïa", "Relizane"
-];
-
-const arabicWilayas = {
-  "الجزائر": "Alger", "وهران": "Oran", "قسنطينة": "Constantine", "عنابة": "Annaba", "الطارف": "El Tarf",
-  "البليدة": "Blida", "سطيف": "Sétif", "تيزي وزو": "Tizi Ouzou", "بجاية": "Béjaïa", "تلمسان": "Tlemcen",
-  "جيجل": "Jijel", "سكيكدة": "Skikda", "باتنة": "Batna", "بسكرة": "Biskra", "مستغانم": "Mostaganem",
-  "البويرة": "Bouira", "تيارت": "Tiaret", "الجلفة": "Djelfa", "الشلف": "Chlef", "سيدي بلعباس": "Sidi Bel Abbès",
-  "المسيلة": "M'Sila", "معسكر": "Mascara", "ورقلة": "Ouargla", "برج بوعريريج": "Bordj Bou Arréridj",
-  "بومرداس": "Boumerdès", "تيبازة": "Tipaza", "ميلة": "Mila", "عين الدفلى": "Aïn Defla", "غرداية": "Ghardaïa"
-};
+console.log("Local Heuristic AI-like offline parser active.");
 
 // Check if listing already exists in Firestore
 async function checkIfListingExists(ouedknissId) {
@@ -75,217 +51,9 @@ async function saveToFirestore(listingData) {
   }
 }
 
-// Parse page text using Gemini AI
-async function parseListingTextWithAI(text, titleCandidate) {
-  if (!ai) {
-    return parseListingText(text, titleCandidate);
-  }
-
-  try {
-    const prompt = `
-You are an expert real estate data parser for the Algerian market.
-Analyze the following raw text from a property listing on Ouedkniss.com, and extract the structured information in JSON format.
-
-Raw Text:
-"""
-${text}
-"""
-
-Title candidate: "${titleCandidate}"
-
-Extract and output ONLY a valid JSON object matching the following structure (no markdown formatting, no other text):
-{
-  "title": "string (the main title, in French or Arabic, or cleaned title candidate)",
-  "category": "string (either 'sell' or 'leisure'. Set 'leisure' ONLY if it's a short-term/vacation rental, otherwise 'sell')",
-  "transactionType": "string (either 'rent' for Location/Rent or 'buy' for Vente/Buy)",
-  "propertyType": "string (must be one of: 'apartment', 'house', 'villa', 'studio', 'commercial', 'land')",
-  "price": number (the price in DZD/DA, e.g. 7000 for 7000 DA, 13500000 for 13.5 Million, 38000000 for 3.8 Billion/Milliard. Convert millions and milliards to absolute DA numbers)",
-  "priceUnit": "string (must be one of: 'per-month' for long term rentals, 'total' for sales, 'per-night' for vacation/leisure rentals)",
-  "rooms": number (number of rooms, default to 1 if not specified or land),
-  "surface": number (surface area in m², default to 80 if not specified),
-  "furnished": boolean (true if it's furnished or has 'مفروش' or 'Meublé', otherwise false),
-  "description": "string (the main description text of the listing)",
-  "phone": "string (extract a 10 digit Algerian mobile number starting with 05, 06, or 07, stripped of spaces, e.g. '0652329227')",
-  "city": "string (match the location to one of these exact Algerian wilaya names: 'Adrar', 'Chlef', 'Laghouat', 'Oum El Bouaghi', 'Batna', 'Béjaïa', 'Biskra', 'Béchar', 'Blida', 'Bouira', 'Tamanrasset', 'Tébessa', 'Tlemcen', 'Tiaret', 'Tizi Ouzou', 'Alger', 'Djelfa', 'Jijel', 'Sétif', 'Saïda', 'Skikda', 'Sidi Bel Abbès', 'Annaba', 'Guelma', 'Constantine', 'Médéa', 'Mostaganem', 'M\\'Sila', 'Mascara', 'Ouargla', 'Oran', 'El Bayadh', 'Illizi', 'Bordj Bou Arréridj', 'Boumerdès', 'El Tarf', 'Tindouf', 'Tissemsilt', 'El Oued', 'Khenchela', 'Souk Ahras', 'Tipaza', 'Mila', 'Aïn Defla', 'Naama', 'Aïn Témouchent', 'Ghardaïa', 'Relizane')"
-}
-`;
-
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
-      contents: prompt,
-      config: {
-        responseMimeType: 'application/json'
-      }
-    });
-
-    const parsedJson = JSON.parse(response.text.trim());
-    return parsedJson;
-  } catch (error) {
-    console.error("AI parsing failed, falling back to regex:", error.message);
-    return parseListingText(text, titleCandidate);
-  }
-}
-
-// Parse page text to extract specs
-function parseListingText(text, titleCandidate) {
-  const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
-  
-  let title = titleCandidate;
-  let category = 'sell';
-  let transactionType = 'rent';
-  let price = 0;
-  let priceUnit = 'total';
-  let rooms = 1;
-  let surface = 80;
-  let furnished = false;
-  let description = '';
-  let phone = '';
-  let city = 'Alger';
-  let propertyType = 'apartment';
-
-  const fullText = text.toLowerCase();
-
-  // Category and Transaction Type
-  if (lines.includes('كراء') || lines.includes('Location')) {
-    transactionType = 'rent';
-    category = 'sell';
-  } else if (lines.includes('بيع') || lines.includes('Vente')) {
-    transactionType = 'buy';
-    category = 'sell';
-  } else if (lines.includes('كراء vacances') || lines.includes('Location vacances')) {
-    transactionType = 'rent';
-    category = 'leisure';
-  }
-
-  const leisureKeywords = ['nuit', 'nuitee', 'vacance', 'vacances', 'jour', 'يومي', 'ليلة', 'لليلة', 'جوان', 'جويلية', 'اوت', 'شبه', 'حجز', 'reservation', 'reserver'];
-  if (transactionType === 'rent' && leisureKeywords.some(kw => fullText.includes(kw))) {
-    category = 'leisure';
-  }
-
-  // Set default price units
-  if (category === 'leisure') {
-    priceUnit = 'per-night';
-  } else if (transactionType === 'rent') {
-    priceUnit = 'per-month';
-  } else {
-    priceUnit = 'total';
-  }
-
-  // Property Type mapping
-  if (fullText.includes('شقة') || fullText.includes('appartement')) {
-    propertyType = 'apartment';
-  } else if (fullText.includes('فيلا') || fullText.includes('villa')) {
-    propertyType = 'villa';
-  } else if (fullText.includes('منزل') || fullText.includes('maison') || fullText.includes('حوش')) {
-    propertyType = 'house';
-  } else if (fullText.includes('استوديو') || fullText.includes('studio')) {
-    propertyType = 'studio';
-  } else if (fullText.includes('أرض') || fullText.includes('terrain') || fullText.includes('تراب')) {
-    propertyType = 'land';
-  } else if (fullText.includes('محل') || fullText.includes('local') || fullText.includes('تجاري') || fullText.includes('commercial')) {
-    propertyType = 'commercial';
-  }
-
-  // Price parsing
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    if (line === 'دج' || line === 'DA') {
-      const prevLine = lines[i - 1];
-      if (prevLine && /^[0-9\s]+$/.test(prevLine)) {
-        price = parseFloat(prevLine.replace(/\s+/g, ''));
-        break;
-      }
-    } else if (line.includes('مليار') || line.includes('Billion')) {
-      let val = 0;
-      if (line === 'مليار' || line === 'Billion') {
-        val = parseFloat(lines[i - 1]);
-      } else {
-        val = parseFloat(line.replace(/مليار|Billion/g, '').trim());
-      }
-      if (!isNaN(val)) {
-        price = val * 1000000000;
-        break;
-      }
-    } else if (line.includes('مليون') || line.includes('Million')) {
-      let val = 0;
-      if (line === 'مليون' || line === 'Million') {
-        val = parseFloat(lines[i - 1]);
-      } else {
-        val = parseFloat(line.replace(/مليون|Million/g, '').trim());
-      }
-      if (!isNaN(val)) {
-        price = val * 1000000;
-        break;
-      }
-    }
-  }
-
-  // Specs parsing
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    if (line === 'الغرف' || line === 'Pièces') {
-      const nextLine = lines[i + 1];
-      if (nextLine) {
-        const match = nextLine.match(/(\d+)/);
-        if (match) rooms = parseInt(match[1]);
-      }
-    }
-    if (line === 'المساحة' || line === 'Superficie') {
-      const nextLine = lines[i + 1];
-      if (nextLine) {
-        const match = nextLine.match(/(\d+)/);
-        if (match) surface = parseInt(match[1]);
-      }
-    }
-    if (line.includes('مفروش') || line.includes('Meublé')) {
-      furnished = true;
-    }
-  }
-
-  // Description parsing
-  const descStartIndex = lines.findIndex(l => l === 'وصف' || l === 'Description');
-  if (descStartIndex !== -1) {
-    const descEndIndex = lines.findIndex((l, idx) => idx > descStartIndex && (l === 'معلومات التواصل' || l === 'إعلانات مماثلة' || l === 'توصيات'));
-    const end = descEndIndex !== -1 ? descEndIndex : lines.length;
-    description = lines.slice(descStartIndex + 1, end).join('\n');
-  }
-
-  // Phone parsing
-  const cleanedText = text.replace(/\s+/g, '');
-  const phoneRegex = /(05|06|07)\d{8}/g;
-  const foundPhones = cleanedText.match(phoneRegex);
-  if (foundPhones && foundPhones.length > 0) {
-    phone = foundPhones[0];
-  }
-
-  // Wilaya matching
-  for (const w of wilayasList) {
-    if (fullText.includes(w.toLowerCase())) {
-      city = w;
-      break;
-    }
-  }
-  for (const [ar, fr] of Object.entries(arabicWilayas)) {
-    if (fullText.includes(ar)) {
-      city = fr;
-      break;
-    }
-  }
-
-  return {
-    title,
-    category,
-    transactionType,
-    propertyType,
-    price,
-    priceUnit,
-    rooms,
-    surface,
-    furnished,
-    description,
-    phone,
-    city
-  };
+// Parse page text using Local Heuristic AI-like Parser
+function parseListingTextWithLocalAI(text, titleCandidate, images) {
+  return localParseListing(text, titleCandidate, images);
 }
 
 async function scrape() {
@@ -428,13 +196,16 @@ async function scrape() {
         return h1 ? h1.innerText.trim() : '';
       });
 
-      // Extract images (filter out icons and trackers)
-      const images = await detailPage.evaluate(() => {
+      // Extract images (filter out icons and trackers, max 7 images)
+      let images = await detailPage.evaluate(() => {
         const imgs = Array.from(document.querySelectorAll('img'));
         return imgs
           .map(img => img.src)
           .filter(src => src && src.includes('medias/announcements/images/'));
       });
+      if (images && images.length > 7) {
+        images = images.slice(0, 7);
+      }
 
       // Click contact button
       const clicked = await detailPage.evaluate(() => {
@@ -454,30 +225,24 @@ async function scrape() {
 
       const bodyText = await detailPage.evaluate(() => document.body.innerText);
 
-      const parsed = await parseListingTextWithAI(bodyText, titleCandidate);
-      parsed.images = images;
+      const parsed = parseListingTextWithLocalAI(bodyText, titleCandidate, images);
       parsed.ouedknissId = ouedknissId;
       parsed.userId = BOT_USER_ID;
 
-      // Validation
-      if (!parsed.title) {
-        console.log('Skipping: Title is empty.');
+      // Quality and completeness validation
+      console.log(`Listing ${ouedknissId} Heuristic Quality Score: ${parsed.quality.score}/100`);
+      if (!parsed.quality.isHighQuality) {
+        console.log(`Skipping listing ${ouedknissId} due to low quality score:`, parsed.quality.reasons.join(', '));
         continue;
       }
+
+      // Final basic validations for database integrity
       if (!parsed.phone) {
         console.log('Skipping: Phone number is empty.');
         continue;
       }
       if (parsed.price <= 0) {
         console.log('Skipping: Price is invalid/empty.');
-        continue;
-      }
-      if (!parsed.images || parsed.images.length === 0) {
-        console.log('Skipping: No images found.');
-        continue;
-      }
-      if (!parsed.description || parsed.description.length < 10) {
-        console.log('Skipping: Description is empty or too short.');
         continue;
       }
 
