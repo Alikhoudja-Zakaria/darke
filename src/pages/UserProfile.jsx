@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase/config';
 import { doc, getDoc, collection, query, where, getDocs, orderBy } from 'firebase/firestore';
 import { useLanguage } from '../context/LanguageContext';
-import { FiPhone, FiCalendar, FiUser } from 'react-icons/fi';
+import { FiPhone, FiCalendar } from 'react-icons/fi';
 import ListingGrid from '../components/ListingGrid';
 import './UserProfile.css';
 
 const UserProfile = () => {
   const { id } = useParams();
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [profileData, setProfileData] = useState(null);
   const [userListings, setUserListings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -74,12 +74,25 @@ const UserProfile = () => {
   if (error || !profileData) {
     return (
       <div className="container" style={{ padding: '60px 0', minHeight: 'calc(100vh - 200px)', textAlign: 'center' }}>
-        <h2>Une erreur est survenue.</h2>
+        <h2>{t('auth.error_generic') || 'Une erreur est survenue.'}</h2>
       </div>
     );
   }
 
-  const joinDate = profileData.createdAt ? new Date(profileData.createdAt).toLocaleDateString() : null;
+  const getJoinDate = () => {
+    if (!profileData?.createdAt) return null;
+    let d;
+    if (typeof profileData.createdAt?.toDate === 'function') {
+      d = profileData.createdAt.toDate();
+    } else if (profileData.createdAt?.seconds) {
+      d = new Date(profileData.createdAt.seconds * 1000);
+    } else {
+      d = new Date(profileData.createdAt);
+    }
+    return !isNaN(d.getTime()) ? d.toLocaleDateString(lang === 'ar' ? 'ar-DZ' : 'fr-DZ') : null;
+  };
+
+  const joinDate = getJoinDate();
   const initial = profileData.displayName ? profileData.displayName.charAt(0).toUpperCase() : 'U';
 
   return (

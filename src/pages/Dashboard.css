@@ -56,3 +56,58 @@
   font-size: 1.3rem;
   font-weight: 600;
 }
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  max-width: 440px;
+  width: 100%;
+  padding: 24px;
+  background: var(--surface-card);
+  border-radius: var(--radius-lg, 16px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+  .dashboard-header {
+    margin-bottom: 20px;
+    gap: 12px;
+  }
+  .dashboard-header h1 {
+    font-size: 1.4rem;
+  }
+  .btn-logout {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+  .dashboard-profile {
+    padding: 16px !important;
+    margin-bottom: 24px !important;
+  }
+  .dashboard-listings-header {
+    margin-bottom: 16px;
+    gap: 12px;
+  }
+  .dashboard-listings-header h2 {
+    font-size: 1.15rem;
+  }
+  .dashboard-listings-header .btn-primary {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+  .modal-content {
+    padding: 18px 16px;
+  }
+}
+

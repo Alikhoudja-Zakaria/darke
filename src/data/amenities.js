@@ -8,5 +8,8 @@ export const amenities = [
   { id: "heating", icon: "heating", labelFR: "Chauffage", labelAR: "تدفئة" },
   { id: "elevator", icon: "elevator", labelFR: "Ascenseur", labelAR: "مصعد" },
   { id: "security", icon: "security", labelFR: "Sécurité 24/7", labelAR: "أمن 24/7" },
-  { id: "garden", icon: "garden", labelFR: "Jardin", labelAR: "حديقة" }
+  { id: "garden", icon: "garden", labelFR: "Jardin", labelAR: "حديقة" },
+  { id: "water_tank", icon: "water_tank", labelFR: "Citerne d'eau / Réservoir", labelAR: "خزان ماء" },
+  { id: "city_gas", icon: "city_gas", labelFR: "Gaz de ville", labelAR: "غاز المدينة" }
 ];
+

@@ -11,6 +11,11 @@
   box-shadow: var(--shadow-sm);
 }
 
+[dir="rtl"] .badge {
+  letter-spacing: normal;
+  text-transform: none;
+}
+
 .badge-new { 
   background: linear-gradient(135deg, #FF6B6B 0%, #EE5253 100%);
   color: white;

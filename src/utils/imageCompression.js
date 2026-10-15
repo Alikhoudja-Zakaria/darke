@@ -27,19 +27,31 @@ export const compressImage = (file, maxWidth = 800, maxHeight = 800, quality = 0
         const ctx = canvas.getContext('2d');
         ctx.drawImage(img, 0, 0, width, height);
         
+        const format = 'image/webp';
         canvas.toBlob(
           (blob) => {
             if (blob) {
-              const compressedFile = new File([blob], file.name.replace(/\.[^/.]+$/, "") + ".jpg", {
-                type: 'image/jpeg',
+              const compressedFile = new File([blob], file.name.replace(/\.[^/.]+$/, "") + ".webp", {
+                type: 'image/webp',
                 lastModified: Date.now(),
               });
               resolve(compressedFile);
             } else {
-              reject(new Error('Canvas to Blob failed'));
+              // Fallback to jpeg if webp canvas export failed
+              canvas.toBlob((fallbackBlob) => {
+                if (fallbackBlob) {
+                  const fallbackFile = new File([fallbackBlob], file.name.replace(/\.[^/.]+$/, "") + ".jpg", {
+                    type: 'image/jpeg',
+                    lastModified: Date.now(),
+                  });
+                  resolve(fallbackFile);
+                } else {
+                  reject(new Error('Canvas to Blob failed'));
+                }
+              }, 'image/jpeg', quality);
             }
           },
-          'image/jpeg',
+          format,
           quality
         );
       };

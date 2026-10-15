@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FiFilter, FiChevronDown } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
 import { wilayas } from '../data/cities';
 import './FilterBar.css';
 
 const FilterBar = ({ onFilterChange, forceLeisureMode }) => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [showMore, setShowMore] = useState(false);
   const [filters, setFilters] = useState({
     city: '',
@@ -29,6 +29,11 @@ const FilterBar = ({ onFilterChange, forceLeisureMode }) => {
     setFilters(empty);
     onFilterChange(empty);
   };
+
+  const activeCount = Object.entries(filters).filter(([key, val]) => {
+    if (key === 'transactionType') return val && val !== 'all';
+    return val !== '' && val !== undefined && val !== null;
+  }).length;
 
   return (
     <div className="filter-bar">
@@ -55,26 +60,56 @@ const FilterBar = ({ onFilterChange, forceLeisureMode }) => {
         </div>
       )}
 
-      <div className="filter-main" style={{ display: 'flex', justifyContent: 'center' }}>
+      <div className="filter-main" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
         <button 
           className="btn-filter-toggle" 
           onClick={() => setShowMore(!showMore)}
-          style={{ width: '100%', maxWidth: '300px', justifyContent: 'center' }}
+          style={{ width: '100%', maxWidth: '300px', justifyContent: 'center', position: 'relative' }}
         >
-          <FiFilter /> {showMore ? t('filters.hide') || 'Masquer les filtres' : t('filters.more_filters') || 'Plus de filtres'} <FiChevronDown className={showMore ? 'rotate' : ''} />
+          <FiFilter /> 
+          <span>{showMore ? (t('filters.hide') || 'Masquer les filtres') : (t('filters.more_filters') || 'Plus de filtres')}</span>
+          {activeCount > 0 && (
+            <span style={{ 
+              backgroundColor: 'var(--primary-color)', 
+              color: 'white', 
+              borderRadius: '9999px', 
+              padding: '2px 8px', 
+              fontSize: '0.75rem', 
+              fontWeight: 700,
+              marginLeft: '6px'
+            }}>
+              {activeCount}
+            </span>
+          )}
+          <FiChevronDown className={showMore ? 'rotate' : ''} />
         </button>
+
+        {activeCount > 0 && (
+          <button
+            type="button"
+            onClick={resetFilters}
+            className="btn-outline"
+            style={{ padding: '8px 14px', borderRadius: 'var(--radius-pill)', fontSize: '0.85rem', color: '#DC2626', borderColor: '#FCA5A5' }}
+            title={t('filters.reset') || 'Effacer les filtres'}
+          >
+            {t('filters.reset') || 'Effacer'}
+          </button>
+        )}
       </div>
 
       {showMore && (
-        <div className="filter-expanded" style={{ marginTop: '16px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+        <div className="filter-expanded">
           <select 
             className="filter-select"
             value={filters.city}
+            aria-label={t('filters.city') || 'Ville'}
             onChange={(e) => handleChange('city', e.target.value)}
           >
             <option value="">{t('filters.city')}</option>
             {wilayas.map(city => (
-              <option key={city.id} value={city.name}>{city.name}</option>
+              <option key={city.id} value={city.name}>
+                {city.code} - {lang === 'ar' && city.nameAr ? city.nameAr : city.name}
+              </option>
             ))}
           </select>
 

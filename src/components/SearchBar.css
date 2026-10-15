@@ -73,9 +73,10 @@
   border: 1px solid var(--border-color);
   list-style: none;
   padding: 8px 0;
-  z-index: 50;
-  max-height: 300px;
+  z-index: 500;
+  max-height: 280px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .suggestion-item {
@@ -86,8 +87,17 @@
   transition: background-color var(--transition-fast);
 }
 
-.suggestion-item:hover {
-  background-color: var(--bg-color);
+.suggestion-item:hover,
+.suggestion-item.active {
+  background-color: var(--primary-light);
+}
+
+.suggestion-item.active .suggestion-text {
+  color: var(--primary-color);
+}
+
+.suggestion-item.active .suggestion-icon {
+  color: var(--primary-color);
 }
 
 .suggestion-icon {
@@ -112,4 +122,29 @@
   color: var(--text-secondary);
   padding: 2px 8px;
   border-radius: var(--radius-pill);
+}
+
+@media (max-width: 600px) {
+  .search-input-container {
+    padding: 8px 14px;
+  }
+  .search-input {
+    font-size: 16px; /* Prevents auto-zoom on iOS */
+  }
+  .search-icon {
+    font-size: 1.1rem;
+    margin-right: 8px;
+  }
+  [dir="rtl"] .search-icon {
+    margin-right: 0;
+    margin-left: 8px;
+  }
+  .search-clear-btn {
+    min-width: 30px;
+    min-height: 30px;
+  }
+  .suggestion-item {
+    padding: 10px 14px;
+    font-size: 0.92rem;
+  }
 }

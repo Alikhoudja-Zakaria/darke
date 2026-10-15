@@ -1,8 +1,8 @@
-import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
-import { FiHome, FiSun, FiPlusSquare, FiUser, FiGlobe, FiHeart, FiSearch } from 'react-icons/fi';
+import { FiHome, FiSun, FiPlusSquare, FiUser, FiGlobe, FiHeart, FiSearch, FiShield } from 'react-icons/fi';
+import { isUserAdmin } from '../utils/adminAuth';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -34,10 +34,10 @@ const Navbar = () => {
     <>
       <header className="navbar-header">
         <div className="container navbar-container">
-          <div className="navbar-logo" onClick={() => navigate('/')}>
+          <Link to="/" className="navbar-logo" style={{ textDecoration: 'none' }}>
             <span className="logo-dk">DK</span>
             <span className="logo-text">Darkoum</span>
-          </div>
+          </Link>
 
           <nav className="navbar-links">
             <Link to="/" className={`nav-link ${isActive('/') && location.pathname === '/' ? 'active' : ''}`}>
@@ -62,6 +62,15 @@ const Navbar = () => {
 
             {user ? (
               <>
+                {isUserAdmin(user) && (
+                  <Link 
+                    to="/admin" 
+                    className={`nav-admin-badge desktop-only ${isActive('/admin') ? 'active' : ''}`}
+                    title="Administration"
+                  >
+                    <FiShield size={14} /> <span>{t('nav.admin')}</span>
+                  </Link>
+                )}
                 <Link to="/post" className="btn-accent nav-post-btn desktop-only" style={{ padding: '8px 16px', borderRadius: 'var(--radius-pill)', fontSize: '0.9rem' }}>
                   <FiPlusSquare /> {t('nav.post')}
                 </Link>
@@ -98,6 +107,12 @@ const Navbar = () => {
           <FiHeart />
           <span>{t('nav.favorites') || 'Favoris'}</span>
         </Link>
+        {isUserAdmin(user) && (
+          <Link to="/admin" className={`mobile-nav-item ${isActive('/admin') ? 'active' : ''}`} style={{ color: '#D97706' }}>
+            <FiShield />
+            <span>{t('nav.admin')}</span>
+          </Link>
+        )}
         <Link to={user ? "/dashboard" : "/login"} className={`mobile-nav-item ${isActive('/dashboard') || isActive('/login') ? 'active' : ''}`}>
           <FiUser />
           <span>{user ? t('nav.dashboard') : t('nav.login')}</span>

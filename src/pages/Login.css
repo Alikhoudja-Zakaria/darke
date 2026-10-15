@@ -60,3 +60,25 @@
 .btn-link:hover {
   opacity: 0.8;
 }
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: 16px 12px;
+  }
+  .login-container {
+    padding: 24px 16px;
+    border-radius: var(--radius-md);
+  }
+  .login-title {
+    font-size: 1.3rem;
+    margin-bottom: 24px;
+  }
+  .login-form .input-field {
+    font-size: 16px; /* Prevents auto zoom on iOS */
+    padding: 10px 14px;
+  }
+  .login-submit {
+    min-height: 44px;
+    font-size: 0.95rem;
+  }
+}

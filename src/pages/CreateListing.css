@@ -222,3 +222,67 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+.wizard-card {
+  padding: 32px;
+  position: relative;
+}
+
+.price-input-row {
+  display: flex;
+  gap: 12px;
+}
+
+.price-scale-select {
+  width: 140px;
+}
+
+@media (max-width: 600px) {
+  .wizard-progress {
+    margin-bottom: 20px;
+  }
+  .wizard-step-indicator {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+  }
+  .wizard-card {
+    padding: 18px 14px;
+    border-radius: var(--radius-md);
+  }
+  .category-card {
+    padding: 14px;
+  }
+  .category-card h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  .category-card p {
+    font-size: 0.85rem;
+  }
+  .image-upload-area {
+    padding: 24px 12px;
+  }
+  .image-preview-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+  }
+  .price-input-row {
+    gap: 8px;
+  }
+  .price-scale-select {
+    width: 110px;
+    font-size: 0.9rem;
+    padding: 10px 8px;
+  }
+  .wizard-actions {
+    margin-top: 24px;
+    padding-top: 16px;
+    gap: 10px;
+  }
+  .wizard-actions .btn-primary,
+  .wizard-actions .btn-outline {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+}

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropertyCard from './PropertyCard';
 import { useLanguage } from '../context/LanguageContext';
 import { FiGrid, FiList } from 'react-icons/fi';
+import EmptyState from './EmptyState';
 import './ListingGrid.css';
 
-const ListingGrid = ({ listings, loading, renderActions }) => {
+const ListingGrid = ({ listings, loading, renderActions, onResetFilters }) => {
   const { t } = useLanguage();
   const [viewMode, setViewMode] = useState('grid');
 
@@ -28,11 +29,13 @@ const ListingGrid = ({ listings, loading, renderActions }) => {
 
   if (!listings || listings.length === 0) {
     return (
-      <div className="empty-state">
-        <div className="empty-icon">🏠</div>
-        <h3>{t('listing.no_results')}</h3>
-        <p>{t('listing.try_filters')}</p>
-      </div>
+      <EmptyState
+        title={t('listing.no_results') || 'Aucune annonce trouvée'}
+        description={t('listing.try_filters') || "Aucune offre ne correspond exactement à vos critères actuels. Élargissez votre recherche ou réinitialisez les filtres."}
+        actionLabel={onResetFilters ? (t('filters.reset') || 'Réinitialiser les filtres') : undefined}
+        onAction={onResetFilters}
+        tip={t('listing.empty_tip') || "Consultez les wilayas voisines (ex: Alger, Blida, Tipaza) ou essayez de chercher sans restriction de prix."}
+      />
     );
   }
 

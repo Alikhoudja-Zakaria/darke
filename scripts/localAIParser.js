@@ -5,22 +5,30 @@
  * advanced context heuristics to compete with LLM accuracy.
  */
 
-// Wilayas list and mappings
+// Wilayas list and mappings (All 58 official Algerian wilayas)
 const wilayas = [
   "Adrar", "Chlef", "Laghouat", "Oum El Bouaghi", "Batna", "Béjaïa", "Biskra", "Béchar", "Blida", "Bouira",
   "Tamanrasset", "Tébessa", "Tlemcen", "Tiaret", "Tizi Ouzou", "Alger", "Djelfa", "Jijel", "Sétif", "Saïda",
   "Skikda", "Sidi Bel Abbès", "Annaba", "Guelma", "Constantine", "Médéa", "Mostaganem", "M'Sila", "Mascara", "Ouargla",
   "Oran", "El Bayadh", "Illizi", "Bordj Bou Arréridj", "Boumerdès", "El Tarf", "Tindouf", "Tissemsilt", "El Oued", "Khenchela",
-  "Souk Ahras", "Tipaza", "Mila", "Aïn Defla", "Naama", "Aïn Témouchent", "Ghardaïa", "Relizane"
+  "Souk Ahras", "Tipaza", "Mila", "Aïn Defla", "Naâma", "Aïn Témouchent", "Ghardaïa", "Relizane", "Timimoun", "Bordj Badji Mokhtar",
+  "Ouled Djellal", "Béni Abbès", "In Salah", "In Guezzam", "Touggourt", "Djanet", "El M'Ghair", "El Meniaa"
 ];
 
 const arabicWilayaMap = {
-  "الجزائر": "Alger", "وهران": "Oran", "قسنطينة": "Constantine", "عنابة": "Annaba", "الطارف": "El Tarf",
-  "البليدة": "Blida", "سطيف": "Sétif", "تيزي وزو": "Tizi Ouzou", "بجاية": "Béjaïa", "تلمسان": "Tlemcen",
-  "جيجل": "Jijel", "سكيكدة": "Skikda", "باتنة": "Batna", "بسكرة": "Biskra", "مستغانم": "Mostaganem",
-  "البويرة": "Bouira", "تيارت": "Tiaret", "الجلفة": "Djelfa", "الشلف": "Chlef", "سيدي بلعباس": "Sidi Bel Abbès",
-  "المسيلة": "M'Sila", "معسكر": "Mascara", "ورقلة": "Ouargla", "برج بوعريريج": "Bordj Bou Arréridj",
-  "بومرداس": "Boumerdès", "تيبازة": "Tipaza", "ميلة": "Mila", "عين الدفلى": "Aïn Defla", "غرداية": "Ghardaïa"
+  "أدرار": "Adrar", "الشلف": "Chlef", "الأغواط": "Laghouat", "أم البواقي": "Oum El Bouaghi", "باتنة": "Batna",
+  "بجاية": "Béjaïa", "بسكرة": "Biskra", "بشار": "Béchar", "البليدة": "Blida", "البويرة": "Bouira",
+  "تمنراست": "Tamanrasset", "تبسة": "Tébessa", "تلمسان": "Tlemcen", "تيارت": "Tiaret", "تيزي وزو": "Tizi Ouzou",
+  "الجزائر": "Alger", "الجلفة": "Djelfa", "جيجل": "Jijel", "سطيف": "Sétif", "سعيدة": "Saïda",
+  "سكيكدة": "Skikda", "سيدي بلعباس": "Sidi Bel Abbès", "عنابة": "Annaba", "قالمة": "Guelma", "قسنطينة": "Constantine",
+  "المدية": "Médéa", "مستغانم": "Mostaganem", "المسيلة": "M'Sila", "معسكر": "Mascara", "ورقلة": "Ouargla",
+  "وهران": "Oran", "البيض": "El Bayadh", "إليزي": "Illizi", "برج بوعريريج": "Bordj Bou Arréridj", "بومرداس": "Boumerdès",
+  "الطارف": "El Tarf", "تندوف": "Tindouf", "تيسمسيلت": "Tissemsilt", "الوادي": "El Oued", "خنشلة": "Khenchela",
+  "سوق أهراس": "Souk Ahras", "تيبازة": "Tipaza", "ميلة": "Mila", "عين الدفلى": "Aïn Defla", "النعامة": "Naâma",
+  "عين تموشنت": "Aïn Témouchent", "غرداية": "Ghardaïa", "غليزان": "Relizane", "تيميمون": "Timimoun",
+  "برج باجي مختار": "Bordj Badji Mokhtar", "أولاد جلال": "Ouled Djellal", "بني عباس": "Béni Abbès",
+  "عين صالح": "In Salah", "عين قزام": "In Guezzam", "تقرت": "Touggourt", "جانت": "Djanet",
+  "المغير": "El M'Ghair", "المنيعة": "El Meniaa"
 };
 
 export function localParseListing(text, titleCandidate = '', images = []) {

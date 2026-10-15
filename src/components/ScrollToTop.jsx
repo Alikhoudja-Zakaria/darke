@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { FiArrowUp } from 'react-icons/fi';
 import './ScrollToTop.css';
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const location = useLocation();
+  const isDetailsPage = location.pathname.startsWith('/listing/');
 
   // Show button when page is scrolled down
   const toggleVisibility = () => {
@@ -26,13 +29,10 @@ const ScrollToTop = () => {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
-  if (!isVisible) {
-    return null;
-  }
-
   return (
     <button 
-      className="scroll-to-top"
+      type="button"
+      className={`scroll-to-top ${isVisible ? 'visible' : ''} ${isDetailsPage ? 'elevated' : ''}`}
       onClick={scrollToTop} 
       aria-label="Scroll to top"
     >

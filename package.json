@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "scrape": "node scripts/scrapeListings.js",
+    "seed": "node scripts/seedListings.js"
   },
   "dependencies": {
     "@google/genai": "latest",

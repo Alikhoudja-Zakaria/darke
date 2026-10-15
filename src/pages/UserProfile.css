@@ -125,3 +125,33 @@
   font-weight: 600;
   color: var(--text-primary);
 }
+
+@media (max-width: 600px) {
+  .user-profile-header {
+    padding: 24px 16px;
+    margin-bottom: 24px;
+  }
+  .profile-avatar-large {
+    width: 76px;
+    height: 76px;
+    font-size: 28px;
+  }
+  .profile-name {
+    font-size: 1.3rem;
+  }
+  .profile-stats {
+    gap: 16px;
+    padding-top: 18px;
+    margin-top: 18px;
+  }
+  .seller-profile-badge {
+    padding: 12px;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .seller-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}

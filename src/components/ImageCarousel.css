@@ -1,16 +1,21 @@
 .carousel-container {
   width: 100%;
+  aspect-ratio: 16 / 10;
   height: 240px;
   background-color: #E2E8F0;
   position: relative;
+  overflow: hidden;
 }
 
 .carousel-container.details-mode {
-  background-color: #000;
+  height: 440px;
+  aspect-ratio: auto;
+  background-color: #0F172A;
 }
 
 .carousel-empty {
   width: 100%;
+  aspect-ratio: 16 / 10;
   height: 240px;
   background-color: #E2E8F0;
   display: flex;
@@ -19,7 +24,8 @@
 }
 
 .carousel-empty.details-mode {
-  background-color: #f3f4f6;
+  height: 440px;
+  background-color: #f8fafc;
 }
 
 .carousel-empty-text {
@@ -78,4 +84,26 @@
   background: white !important;
   transform: scale(1.3);
   box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  /* On cards: hide arrows on mobile to favor swipe gestures and clean cards */
+  .property-card .swiper-button-next,
+  .property-card .swiper-button-prev {
+    display: none !important;
+  }
+
+  /* On details page: always show touch-friendly navigation arrows */
+  .carousel-container.details-mode .swiper-button-next,
+  .carousel-container.details-mode .swiper-button-prev {
+    opacity: 0.85;
+    width: 36px !important;
+    height: 36px !important;
+    background: rgba(0, 0, 0, 0.45);
+  }
+  
+  .carousel-container.details-mode .swiper-button-next:active,
+  .carousel-container.details-mode .swiper-button-prev:active {
+    transform: scale(0.92);
+  }
 }

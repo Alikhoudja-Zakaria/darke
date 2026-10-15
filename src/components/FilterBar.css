@@ -63,8 +63,12 @@
 }
 
 .filter-expanded {
+  margin-top: 16px;
   padding-top: 16px;
   border-top: 1px solid var(--border-color);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
   animation: slideDown 0.3s ease-out;
 }
 
@@ -89,6 +93,12 @@
   background-repeat: no-repeat;
   background-position: right 16px center;
   background-size: 16px;
+}
+
+[dir="rtl"] .filter-select {
+  background-position: left 16px center;
+  padding-right: 16px;
+  padding-left: 36px;
 }
 
 .filter-select:focus {
@@ -137,4 +147,35 @@
 .btn-reset:hover {
   background-color: var(--error-color);
   color: white;
+}
+
+@media (max-width: 600px) {
+  .filter-bar {
+    padding: 12px;
+    margin-bottom: 20px;
+  }
+  .filter-transaction-type {
+    gap: 6px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+  }
+  .filter-type-btn {
+    padding: 9px 4px;
+    font-size: 0.88rem;
+    border-radius: var(--radius-sm);
+  }
+  .filter-expanded {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+  .filter-select,
+  .filter-input {
+    font-size: 16px; /* Prevents auto-zoom on iOS Safari */
+    padding: 10px 14px;
+  }
+  .btn-reset {
+    padding: 10px;
+  }
 }

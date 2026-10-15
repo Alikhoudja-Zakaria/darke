@@ -1,0 +1,1983 @@
+[
+  {
+    "id": 1,
+    "filiere": "A00CAN02:FB ST ECOLE SUPERIEURE DES SCIENCES APPLIQUEES DE TLEMCEN",
+    "etablissement": "ECOLE SUPERIEURE DES SCIENCES APPLIQUEES DE TLEMCEN(TLEMCEN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 2,
+    "filiere": "A00CAN05:FB ST ECOLE NATIONALE SUPERIEURE D HYDRAULIQUE BLIDA",
+    "etablissement": "ECOLE NATIONALE SUPERIEURE HYDRAULIQUE BLIDA(BLIDA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 3,
+    "filiere": "A00LAL01:SCIENCES ET TECHNOLOGIES [FRL/FRR]",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 4,
+    "filiere": "A00TCL02:SCIENCES ET TECHNOLOGIES",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 5,
+    "filiere": "A01LAN01:GENIE MINIER",
+    "etablissement": "UNIV. TEBESSA(TEBESSA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 6,
+    "filiere": "A01LAN02:GENIE MINIER",
+    "etablissement": "UNIV. ANNABA(ANNABA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 7,
+    "filiere": "A01TCN01:GENIE MINIER ET TRAITEMENT DES MINERAIS",
+    "etablissement": "UNIV. BEJAIA(BEJAIA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 8,
+    "filiere": "A02EPN01:AUTOMATIQUE (A DISTANCE)",
+    "etablissement": "UNIV. ANNABA(ANNABA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 9,
+    "filiere": "A02IAN01:AUTOMATIQUE",
+    "etablissement": "UNIV. BOUMERDES(BOUMERDES)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 10,
+    "filiere": "A02LAN01:AUTOMATIQUE (SYSTEME AUTOMOBILE)",
+    "etablissement": "U.S.T.O. (ORAN)(ORAN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 11,
+    "filiere": "A02TPN01:AUTOMATIQUE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV.SKIKDA I.S.T.A(SKIKDA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 12,
+    "filiere": "A03FPN02:HYDROCARBURES (FORAGE) (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. OUARGLA(OUARGLA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 13,
+    "filiere": "A03FPN03:HYDROCARBURES (MECANIQUE DES CHANTIERS PETROLIERS)",
+    "etablissement": "UNIV. OUARGLA(OUARGLA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 14,
+    "filiere": "A03LAN01:HYDROCARBURES",
+    "etablissement": "UNIV. BOUMERDES(BOUMERDES)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 15,
+    "filiere": "A03LAN02:HYDROCARBURES",
+    "etablissement": "UNIV. OUARGLA(OUARGLA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 16,
+    "filiere": "A04LAL02:METALLURGIE [FRL/FRR]",
+    "etablissement": "U.S.T.O. (ORAN)(ORAN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 17,
+    "filiere": "A05IAN01:GENIE CIVIL (CONSTRUCTIONS CIVILS ET ENVIRONNEMENT)",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 18,
+    "filiere": "A05IAN02:GENIE CIVIL (VOIRIE ET RESEAUX DIVERS)",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 19,
+    "filiere": "A05PSL01:TECHNIQUE (P.E.S) OPTION : GENIE CIVIL",
+    "etablissement": "ECOLE NORMALE SUPERIEURE D ENSEIGNEMENT TECHNIQUE DE SKIKDA",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 20,
+    "filiere": "A05TPN02:GENIE CIVIL (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. TLEMCEN I.S.T.A(TLEMCEN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 21,
+    "filiere": "A06IAN01:AERONAUTIQUE",
+    "etablissement": "U.S.T.O. (ORAN)(ORAN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 22,
+    "filiere": "A06LAN01:AERONAUTIQUE",
+    "etablissement": "UNIV. BLIDA 1(BLIDA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 23,
+    "filiere": "A07IAN01:ELECTROMECANIQUE",
+    "etablissement": "UNIV. ORAN 2(ORAN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 24,
+    "filiere": "A07IAN02:ELECTROMECANIQUE",
+    "etablissement": "UNIV. BOUMERDES(BOUMERDES)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 25,
+    "filiere": "A07LAN01:ELECTROMECANIQUE (ELECTROMECANIQUE D AUTOMOBILE)",
+    "etablissement": "UNIV BORDJ BOU ARRERIDJ",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 26,
+    "filiere": "A07TPN01:ELECTROMECANIQUE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. CONSTANTINE 1 I.S.T.A(CONSTANTINE)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 27,
+    "filiere": "A08FPN01:GENIE DES PROCEDES (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. RELIZANE(RELIZANE)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 28,
+    "filiere": "A08IAN01:GENIE DES PROCEDES",
+    "etablissement": "UNIV. MEDEA(MEDEA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 29,
+    "filiere": "A08IAN02:GENIE DES PROCEDES",
+    "etablissement": "UNIV. SETIF 1(SETIF)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 30,
+    "filiere": "A08TPN01:GENIE DES PROCEDES (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. BOUIRA - I.S.T.A(BOUIRA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 31,
+    "filiere": "A09FPN01:ENERGIES RENOUVELABLES (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. MSILA(MSILA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 32,
+    "filiere": "A09FPN02:ENERGIES RENOUVELABLES (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. OUARGLA(OUARGLA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 33,
+    "filiere": "A09FPN03:ENERGIES RENOUVELABLES (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. GHARDAIA(GHARDAIA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 34,
+    "filiere": "A09IAN01:ELECTROTECHNIQUE",
+    "etablissement": "U.S.T.O. (ORAN)(ORAN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 35,
+    "filiere": "A09IAN02:ENERGIES RENOUVELABLES (CONVERSION THERMIQUE)",
+    "etablissement": "UNIV. BLIDA 1(BLIDA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 36,
+    "filiere": "A09IAN03:ENERGIES RENOUVELABLES (CONVERSION PHOTOVOLTAIQUE)",
+    "etablissement": "UNIV. BLIDA 1(BLIDA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 37,
+    "filiere": "A09IAN04:ELECTROTECHNIQUE",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 38,
+    "filiere": "A10LAN01:GENIE MARITIME",
+    "etablissement": "U.S.T.O. (ORAN)(ORAN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 39,
+    "filiere": "A11IAN03:OPTIQUE ET MECANIQUE DE PRECISION",
+    "etablissement": "UNIV. SETIF 1(SETIF)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 40,
+    "filiere": "A11LAN01:OPTIQUE ET MECANIQUE DE PRECISION",
+    "etablissement": "UNIV. SETIF 1(SETIF)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 41,
+    "filiere": "A11TPN01:OPTIQUE ET MECANIQUE DE PRECISION (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. ORAN 1 I.S.T.A(ORAN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 42,
+    "filiere": "A11TPN02:OPTIQUE ET MECANIQUE DE PRECISION (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. OUARGLA - I.S.T.A. (OUARGLA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 43,
+    "filiere": "A11TPN03:OPTIQUE ET MECANIQUE DE PRECISION (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. BOUMERDES I.S.T.A(BOUMERDES)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 44,
+    "filiere": "A11TPN04:OPTIQUE ET MECANIQUE DE PRECISION (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. ORAN 1 I.S.T.A(ORAN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 45,
+    "filiere": "A12FPN01:HYDRAULIQUE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. GUELMA(GUELMA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 46,
+    "filiere": "A12LAL01:HYDRAULIQUE [FRL/FRR]",
+    "etablissement": "UNIV. BEJAIA(BEJAIA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 47,
+    "filiere": "A12TPN01:HYDRAULIQUE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. BOUIRA - I.S.T.A(BOUIRA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 48,
+    "filiere": "A13IAN01:INDUSTRIES PETROCHIMIQUES",
+    "etablissement": "UNIV. SKIKDA(SKIKDA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 49,
+    "filiere": "A13LAN01:INDUSTRIES PETROCHIMIQUES",
+    "etablissement": "UNIV. SKIKDA(SKIKDA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 50,
+    "filiere": "A14FPN01:INGENIERIE DES TRANSPORTS (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. CONSTANTINE 1(CONSTANTINE)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 51,
+    "filiere": "A14FPN02:INGENIERIE DES TRANSPORTS (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. CONSTANTINE 1(CONSTANTINE)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 52,
+    "filiere": "A14LAN01:INGENIERIE DES TRANSPORTS",
+    "etablissement": "UNIV. CONSTANTINE 1(CONSTANTINE)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 53,
+    "filiere": "A15IAN01:TRAVAUX PUBLICS",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 54,
+    "filiere": "A16FPN01:ELECTROTECHNIQUE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. CONSTANTINE 1(CONSTANTINE)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 55,
+    "filiere": "A16FPN02:ELECTROTECHNIQUE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. GUELMA(GUELMA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 56,
+    "filiere": "A16IAN01:ELECTROTECHNIQUE",
+    "etablissement": "UNIV. SIDI BEL ABBES(SIDIBEL-ABBES)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 57,
+    "filiere": "A16LAN01:ELECTROTECHNIQUE (ENERGIES RENOUVELABLES)",
+    "etablissement": "UNIV. BISKRA(BISKRA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 58,
+    "filiere": "A16PAN01:GENIE ELECTRIQUE (PROFESSEUR POUR SOURDS-MUETS)",
+    "etablissement": "ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS(ALGER)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 59,
+    "filiere": "A16PSL01:TECHNIQUE (P.E.S) OPTION : GENIE ELECTRIQUE",
+    "etablissement": "ECOLE NORMALE SUPERIEURE D ENSEIGNEMENT TECHNIQUE DE SKIKDA",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 60,
+    "filiere": "A17IAN01:ELECTRONIQUE",
+    "etablissement": "UNIV BORDJ BOU ARRERIDJ(B.B.ARRERIDJ)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 61,
+    "filiere": "A17IAN02:ELECTRONIQUE (SYSTEMES ELECTRONIQUES AUTONOMES ET INTELLIGENCE ARTIFICIELLE)",
+    "etablissement": "UNIV. SIDI BEL ABBES(SIDIBEL-ABBES)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 62,
+    "filiere": "A17LAN01:ELECTRONIQUE (ENSEIGNEMENT EN LANGUE ANGLAISE)",
+    "etablissement": "UNIV. BOUMERDES(BOUMERDES)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 63,
+    "filiere": "A17TCN01:CONCEPTION DES CIRCUITS ELECTRONIQUES",
+    "etablissement": "UNIV. SAIDA(SAIDA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 64,
+    "filiere": "A18IAN01:GENIE INDUSTRIEL",
+    "etablissement": "UNIV. ORAN 2(ORAN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 65,
+    "filiere": "A18LAN01:GENIE INDUSTRIEL",
+    "etablissement": "UNIV. TLEMCEN(TLEMCEN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 66,
+    "filiere": "A18TPN03:GENIE INDUSTRIEL (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. OUM EL BOUAGHI - I.S.T.A",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 67,
+    "filiere": "A18TPN04:GENIE INDUSTRIEL (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "USTO ORAN I.S.T.A(ORAN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 68,
+    "filiere": "A19FPN01:GENIEMECANIQUE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. CONSTANTINE 1(CONSTANTINE)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 69,
+    "filiere": "A19FPN02:GENIE MECANIQUE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. TLEMCEN(TLEMCEN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 70,
+    "filiere": "A19FPN03:GENIE MECANIQUE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. GUELMA(GUELMA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 71,
+    "filiere": "A19LAN01:GENIE MECANIQUE (INGENIERIE DE CONSTRUCTION AUTOMOBILE)",
+    "etablissement": "UNIV. BOUMERDES(BOUMERDES)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 72,
+    "filiere": "A19LAN02:GENIE MECANIQUE (TECHNOLOGIE AUTOMOBILE)",
+    "etablissement": "UNIV. BATNA 2(BATNA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 73,
+    "filiere": "A19PSL01:TECHNIQUE (P.E.S) OPTION : GENIE MECANIQUE",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE SKIKDA",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 74,
+    "filiere": "A19TPN01:GENIE MECANIQUE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. CONSTANTINE 1 I.S.T.A",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 75,
+    "filiere": "A19TPN03:GENIE MECANIQUE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. CONSTANTINE 1 I.S.T.A",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 76,
+    "filiere": "A20IAN01:TELECOMMUNICATIONS",
+    "etablissement": "UNIV. GUELMA(GUELMA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 77,
+    "filiere": "A20TPN01:TELECOMMUNICATIONS (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. OUM EL BOUAGHI - I.S.T.A",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 78,
+    "filiere": "A21FPN01:HYGIENE ET SECURITE INDUSTRIELLE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. BATNA 2(BATNA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 79,
+    "filiere": "A21IAN01:HYGIENE ET SECURITE INDUSTRIELLE",
+    "etablissement": "UNIV. ORAN 2(ORAN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 80,
+    "filiere": "A21LAN01:HYGIENE ET SECURITE INDUSTRIELLE",
+    "etablissement": "UNIV. BATNA 2(BATNA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 81,
+    "filiere": "A21TPN01:HYGIENE ET SECURITE INDUSTRIELLE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. OUARGLA - I.S.T.A. (OUARGLA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 82,
+    "filiere": "A21TPN02:HYGIENE ET SECURITE INDUSTRIELLE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV.SKIKDA I.S.T.A(SKIKDA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 83,
+    "filiere": "A22FPN01:GENIEBIOMEDICAL (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. TLEMCEN(TLEMCEN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 84,
+    "filiere": "A22FPN02:GENIEBIOMEDICAL (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. JIJEL(JIJEL)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 85,
+    "filiere": "B00LAL01:SCIENCES DE LA MATIERE [FRL/FRR]",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 86,
+    "filiere": "B00PAN01:SCIENCES PHYSIQUES (PROFESSEUR DE L ENSEIGNEMENT SECONDAIRE A L ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS)",
+    "etablissement": "ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS(ALGER)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 87,
+    "filiere": "B00PML01:SCIENCES PHYSIQUE ET TECHNOLOGIE (P.E.M)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 88,
+    "filiere": "B00PSL01:SCIENCES PHYSIQUES (P.E.S.)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 89,
+    "filiere": "B01IAN01:CHIMIE",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 90,
+    "filiere": "B01IPN01:CHIMIE",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 91,
+    "filiere": "B02FPN01:PHYSIQUE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. BISKRA(BISKRA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 92,
+    "filiere": "B02IAN01:PHYSIQUE",
+    "etablissement": "UNIV. OUARGLA(OUARGLA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 93,
+    "filiere": "B02IPN01:PHYSIQUE",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 94,
+    "filiere": "B02TPN01:PHYSIQUE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. OUM EL BOUAGHI - I.S.T.A(OUM-EL-BOUAGHI)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 95,
+    "filiere": "B02TPN02:PHYSIQUE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. ORAN 1 I.S.T.A(ORAN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 96,
+    "filiere": "C01EPN01:INFORMATIQUE (A DISTANCE)",
+    "etablissement": "USTHB(ALGER)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 97,
+    "filiere": "C01FPN02:INFORMATIQUE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. DJELFA(DJELFA)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 98,
+    "filiere": "C01FPN03:INFORMATIQUE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. GUELMA(GUELMA)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 99,
+    "filiere": "C01LAL02:INFORMATIQUE [FRL/FRR]",
+    "etablissement": "C. UNIV. AFLOU(LAGHOUAT)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 100,
+    "filiere": "C01LAL03:INFORMATIQUE [FRL/FRR]",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 101,
+    "filiere": "C01PAN01:INFORMATIQUE (PROFESSEUR DE L ENSEIGNEMENT SECONDAIRE A L ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS)",
+    "etablissement": "ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS(ALGER)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 102,
+    "filiere": "C01PML01:INFORMATIQUE (P.E.M)",
+    "etablissement": "ANNEXE DJELFA (ECOLE NORMALE SUPERIEURE DE KOUBA)(DJELFA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 103,
+    "filiere": "C01PSL01:INFORMATIQUE (P.E.S)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 104,
+    "filiere": "C01TCL02:INFORMATIQUE",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 105,
+    "filiere": "C01TCL04:INFORMATIQUE (INTELLIGENCE ARTIFICIELLE)",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 106,
+    "filiere": "C02FPN01:MATHEMATIQUES (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. BISKRA(BISKRA)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 107,
+    "filiere": "C02LAL03:MATHEMATIQUES [FRL/FRR]",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 108,
+    "filiere": "C02PAN01:MATHEMATIQUES (PROFESSEUR DE L ENSEIGNEMENT SECONDAIRE A L ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS)",
+    "etablissement": "ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS(ALGER)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 109,
+    "filiere": "C02PML01:MATHEMATIQUES (P.E.M)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 110,
+    "filiere": "C02PSL01:MATHEMATIQUES (P.E.S.)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 111,
+    "filiere": "C02TCN01:STATISTIQUE ET INGENIERIE DES DONNEES",
+    "etablissement": "UNIV. SAIDA(SAIDA)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 112,
+    "filiere": "C03FPN01:MATHEMATIQUES APPLIQUEES (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. BOUMERDES(BOUMERDES)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 113,
+    "filiere": "C03IAN01:MATHEMATIQUES APPLIQUEES",
+    "etablissement": "USTHB(ALGER)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 114,
+    "filiere": "CA0LAN01:INFORMATIQUE + AUTOMATIQUE",
+    "etablissement": "UNIV. ANNABA(ANNABA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 115,
+    "filiere": "CC1LPN01:MATHEMATIQUES APPLIQUEES A L INTELLIGENCE ARTIFICIELLE ET SCIENCE DES DONNEES",
+    "etablissement": "UNIV. OUARGLA(OUARGLA)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 116,
+    "filiere": "CF0LAN01:MATHEMATIQUES APPLIQUEES + SCIENCES ECONOMIQUES",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 117,
+    "filiere": "CF0LAN03:MATHEMATIQUES APPLIQUEE + SCIENCES ECONOMIQUES",
+    "etablissement": "UNIV. MSILA(MSILA)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 118,
+    "filiere": "CF0LAN04:MATHEMATIQUES APPLIQUEE + SCIENCES ECONOMIQUES",
+    "etablissement": "UNIV. MEDEA(MEDEA)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 119,
+    "filiere": "CF0LAN05:INFORMATIQUE + SCIENCES ECONOMIQUES",
+    "etablissement": "UNIV. BEJAIA(BEJAIA)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 120,
+    "filiere": "CF0LAN06:MATHEMATIQUES APPLIQUEE + SCIENCES ECONOMIQUES",
+    "etablissement": "UNIV ALGER 1 + UNIV ALGER 3(ALGER)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 121,
+    "filiere": "CF0LAN07:INFORMATIQUE + SCIENCES DE GESTION",
+    "etablissement": "UNIV. GHARDAIA(GHARDAIA)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 122,
+    "filiere": "CF0LAN08:INFORMATIQUE + SCIENCES COMMERCIALES",
+    "etablissement": "UNIV. GHARDAIA(GHARDAIA)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 123,
+    "filiere": "CF0LPN02:INFORMATIQUE + SCIENCES DE GESTION",
+    "etablissement": "UNIV. ORAN 1 I.S.T.A(ORAN)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 124,
+    "filiere": "CF1LPN01:MATHEMATIQUES ET INFORMATIQUE APPLIQUEES AUX SCIENCES ECONOMIQUES ET DE GESTION",
+    "etablissement": "UNIV. SETIF 1(SETIF)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 125,
+    "filiere": "CF1LPN02:MATHEMATIQUES ET INFORMATIQUE APPLIQUEES AUX SCIENCES ECONOMIQUES ET DE GESTION",
+    "etablissement": "UNIV. ANNABA(ANNABA)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 126,
+    "filiere": "CF1LPN03:MATHEMATIQUES ET INFORMATIQUE APPLIQUEES AUX SCIENCES ECONOMIQUES ET DE GESTION",
+    "etablissement": "UNIV. MSILA(MSILA)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 127,
+    "filiere": "CI1LPN01:MATHEMATIQUES ET INFORMATIQUE APPLIQUEES AUX SCIENCES HUMAINES ET SOCIALES",
+    "etablissement": "UNIV KHENCHELA(KHENCHLA)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 128,
+    "filiere": "CI1LPN02:MATHEMATIQUES ET INFORMATIQUE APPLIQUEES AUX SCIENCES HUMAINES ET SOCIALES",
+    "etablissement": "UNIV. OUARGLA(OUARGLA)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 129,
+    "filiere": "CI1LPN03:MATHEMATIQUES ET INFORMATIQUE APPLIQUEES AUX SCIENCES HUMAINES ET SOCIALES",
+    "etablissement": "UNIV. CONSTANTINE 2(CONSTANTINE)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 130,
+    "filiere": "D00CAN06:FB SNV ECOLE SUPERIEURE AGRONOMIQUE DE MOSTAGANEM",
+    "etablissement": "ECOLE SUPERIEURE AGRONOMIQUE DE MOSTAGANEM",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 131,
+    "filiere": "D00CAN09:FB SNV ECOLE NATIONALE SUPERIEURE DES FORETS DE KHENCHELA",
+    "etablissement": "ECOLE NATIONALE SUPERIEURE DES FORETS KHENCHELA",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 132,
+    "filiere": "D00CAN12:FB SP ECOLE NATIONALE SUPERIEURE D AGRICULTURE SAHARIENNE D ADRAR",
+    "etablissement": "ECOLE NATIONALE SUPERIEURE D AGRICULTURE SAHARIENNE D ADRAR",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 133,
+    "filiere": "D00CAN13:FB SP ECOLE NATIONALE SUPERIEURE D AGRICULTURE SAHARIENNE D EL OUED",
+    "etablissement": "ECOLE NATIONALE SUPERIEURE D AGRICULTURE SAHARIENNE D EL OUED",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 134,
+    "filiere": "D00LAL01:SCIENCES DE LA NATURE ET DE LA VIE [FRL/FRR]",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 135,
+    "filiere": "D00LAL04:SCIENCES DE LA NATURE ET DE LA VIE [FRL/FRR]",
+    "etablissement": "C. UNIV. AFLOU(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 136,
+    "filiere": "D00PAN01:SCIENCES NATURELLES (PROFESSEUR DE L ENSEIGNEMENT SECONDAIRE A L ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS)",
+    "etablissement": "ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS(ALGER)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 137,
+    "filiere": "D00PML01:SCIENCES NATURELLES (P.E.M)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 138,
+    "filiere": "D00PSL01:SCIENCES NATURELLES (P.E.S)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 139,
+    "filiere": "D02IAN01:SCIENCES BIOLOGIQUES",
+    "etablissement": "USTHB(ALGER)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 140,
+    "filiere": "D03FPN02:SCIENCES AGRONOMIQUES (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. ORAN 1(ORAN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 141,
+    "filiere": "D03LAN01:SCIENCES AGRONOMIQUES",
+    "etablissement": "UNIV. TLEMCEN(TLEMCEN)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 142,
+    "filiere": "D03LAN02:SCIENCES AGRONOMIQUES",
+    "etablissement": "UNIV. SETIF 1(SETIF)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 143,
+    "filiere": "D03LAN03:SCIENCES AGRONOMIQUES",
+    "etablissement": "UNIV. TIARET(TIARET)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 144,
+    "filiere": "D03TCL01:SCIENCES AGRONOMIQUES",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 145,
+    "filiere": "D05FPN01:HYDROBIOLOGIE MARINE ET CONTINENTALE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. OUARGLA(OUARGLA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 146,
+    "filiere": "D06FPN01:ECOLOGIE ET ENVIRONNEMENT (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. CONSTANTINE 1(CONSTANTINE)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 147,
+    "filiere": "D07FPN01:SCIENCES ALIMENTAIRES (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. BEJAIA(BEJAIA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 148,
+    "filiere": "D07FPN02:SCIENCES ALIMENTAIRES (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. GUELMA(GUELMA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 149,
+    "filiere": "D07IAN01:SCIENCES ALIMENTAIRES",
+    "etablissement": "UNIV. BEJAIA(BEJAIA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 150,
+    "filiere": "D07LAN01:SCIENCES ALIMENTAIRES",
+    "etablissement": "UNIV. CONSTANTINE 1(CONSTANTINE)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 151,
+    "filiere": "D07TPN02:SCIENCES ALIMENTAIRES (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. BLIDA 1 I.S.T.A(BLIDA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 152,
+    "filiere": "D07TPN03:SCIENCES ALIMENTAIRES (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. OUM EL BOUAGHI - I.S.T.A",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 153,
+    "filiere": "D07TPN04:SCIENCES ALIMENTAIRES (CONTROLE ET MANAGEMENT DE LA QUALITE EN INDUSTRIES AGROALIMENTAIRES)",
+    "etablissement": "UNIV. TLEMCEN I.S.T.A",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 154,
+    "filiere": "E01FPN01:GEOGRAPHIE ET AMENAGEMENT DU TERRITOIRE",
+    "etablissement": "UNIV. OUM EL BOUAGHI",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 155,
+    "filiere": "E01FPN02:GEOGRAPHIE ET AMENAGEMENT DU TERRITOIRE",
+    "etablissement": "UNIV. OUARGLA",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 156,
+    "filiere": "E01FPN03:VILLES INTELLIGENTES",
+    "etablissement": "UNIV. BATNA 2",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 157,
+    "filiere": "E01FPN04:VILLES INTELLIGENTES",
+    "etablissement": "UNIV. ANNABA",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 158,
+    "filiere": "E01LAL01:GEOGRAPHIE ET AMENAGEMENT DU TERRITOIRE",
+    "etablissement": "UNIV. DJELFA",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 159,
+    "filiere": "E02FPN01:GEOPHYSIQUE",
+    "etablissement": "UNIV. OUARGLA",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 160,
+    "filiere": "E02LAL01:GEOPHYSIQUE",
+    "etablissement": "UNIV. SETIF 1",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 161,
+    "filiere": "E03IAN01:GEOLOGIE",
+    "etablissement": "UNIV. TAMANGHASSET(TAMANRASSET)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 162,
+    "filiere": "E03LAL01:GEOLOGIE [FRL/FRR]",
+    "etablissement": "UNIV. KHEMIS MILIANA(AIN-DEFLA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 163,
+    "filiere": "F00CAN01:FB SECSG ECOLE SUPERIEURE DES SCIENCES DE GESTION DE ANNABA",
+    "etablissement": "ECOLE SUPERIEURE DES SCIENCES DE GESTION DE ANNABA(ANNABA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 164,
+    "filiere": "F00CAN02:FB SECSG ECOLE SUPERIEURE DE COMPTABILITE ET DE FINANCE DE CONSTANTINE",
+    "etablissement": "ECOLE SUPERIEURE DE COMPTABILITE ET DE FINANCE DE CONSTANTINE",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 165,
+    "filiere": "F00CAN03:FB SECSG ECOLE SUPERIEURE DE MANAGEMENT DE TLEMCEN",
+    "etablissement": "ECOLE SUPERIEURE DE MANAGEMENT DE TLEMCEN",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 166,
+    "filiere": "F00CAN04:FB SECSG ECOLE SUPERIEURE DE D ECONOMIE D ORAN",
+    "etablissement": "ECOLE SUPERIEURE D ECONOMIE D ORAN",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 167,
+    "filiere": "F00FCL01:SCIENCES ECONOMIQUES, DE GESTION ET SCIENCES COMMERCIALES (FORMATION CONTINUE)",
+    "etablissement": "CENTRE DE FORMATION CONTINUE LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 168,
+    "filiere": "F00LAL01:SCIENCES ECONOMIQUES, DE GESTION ET COMMERCIALES [FRL/FRR]",
+    "etablissement": "C. UNIV. AFLOU(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 169,
+    "filiere": "F00LAL02:SCIENCES ECONOMIQUES, DE GESTION ET COMMERCIALES [FRL/FRR]",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 170,
+    "filiere": "F00PAN01:SCIENCES ECONOMIQUES (PROFESSEUR DE L ENSEIGNEMENT SECONDAIRE A L ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS)",
+    "etablissement": "ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS(ALGER)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 171,
+    "filiere": "F00PSL01:SCIENCES ECONOMIQUES (P.E.S)",
+    "etablissement": "ANNEXE MEDEA (ECOLE NORMALE SUPERIEURE DE KOUBA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 172,
+    "filiere": "F00TPN02:SCIENCES DE GESTION SCIENCES FINANCIERES ET COMPTABILITE",
+    "etablissement": "UNIV. OUM EL BOUAGHI - I.S.T.A",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 173,
+    "filiere": "F00TPN03:SCIENCES DE GESTION SCIENCES FINANCIERES ET COMPTABILITE",
+    "etablissement": "UNIV. ORAN 1 I.S.T.A",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 174,
+    "filiere": "F01FPN01:SCIENCES DE GESTION (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. ANNABA(ANNABA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 175,
+    "filiere": "F01FPN02:SCIENCES DE GESTION (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. OUARGLA(OUARGLA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 176,
+    "filiere": "F01LAN01:SCIENCES DE GESTION",
+    "etablissement": "UNIV. TISSEMSILT(TISSEMSILT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 177,
+    "filiere": "F02FPN01:SCIENCES FINANCIERES ET COMPTABILITE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. OUARGLA(OUARGLA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 178,
+    "filiere": "F02LAN01:SCIENCES FINANCIERES ET COMPTABILITE",
+    "etablissement": "UNIV. MEDEA(MEDEA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 179,
+    "filiere": "F03FPN02:SCIENCES COMMERCIALES (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. MOSTAGANEM(MOSTAGANEM)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 180,
+    "filiere": "F04EAN01:SCIENCES ECONOMIQUES (A DISTANCE)",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 181,
+    "filiere": "F04EAN03:SCIENCES ECONOMIQUES (A DISTANCE)",
+    "etablissement": "UNIV. TEBESSA(TEBESSA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 182,
+    "filiere": "FC1LAN03:INTELLIGENCE ARTIFICIELLE EN ECONOMIE APPLIQUEE",
+    "etablissement": "UNIV. TIPAZA(TIPAZA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 183,
+    "filiere": "FF1LPN01:INFORMATIQUE DES AFFAIRES",
+    "etablissement": "UNIV. TIPAZA(TIPAZA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 184,
+    "filiere": "FH0LAN01:SCIENCES DE GESTION + LANGUE ANGLAISE",
+    "etablissement": "UNIV. MSILA(MSILA)",
+    "note": 15.48,
+    "priorite": 2
+  },
+  {
+    "id": 185,
+    "filiere": "FI1LPN01:SANTE ET PROTECTION SOCIALE",
+    "etablissement": "UNIV. CONSTANTINE 2(CONSTANTINE)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 186,
+    "filiere": "G01LAL01:SCIENCES POLITIQUES [FRL/FRR]",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 187,
+    "filiere": "G01LAN01:SCIENCES POLITIQUES",
+    "etablissement": "UNIV. ALGER 3(ALGER)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 188,
+    "filiere": "G02FCL01:DROIT (FORMATION CONTINUE)",
+    "etablissement": "CENTRE DE FORMATION CONTINUE LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 189,
+    "filiere": "G02LAL02:DROIT [FRL/FRR]",
+    "etablissement": "C. UNIV. AFLOU(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 190,
+    "filiere": "G02LAL03:DROIT [FRL/FRR]",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 191,
+    "filiere": "GC0LAN01:DROIT + INFORMATIQUE",
+    "etablissement": "UNIV. MSILA(MSILA)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 192,
+    "filiere": "GF0LAN01:DROIT + SCIENCES FINANCIERES ET COMPTABILITE",
+    "etablissement": "UNIV. MEDEA(MEDEA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 193,
+    "filiere": "GG0LAN01:DROIT + SCIENCES POLITIQUES",
+    "etablissement": "UNIV. MSILA(MSILA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 194,
+    "filiere": "GG0LAN02:DROIT + SCIENCES POLITIQUES",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 195,
+    "filiere": "GG0LAN03:DROIT + SCIENCES POLITIQUES",
+    "etablissement": "UNIV. BLIDA 2(BLIDA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 196,
+    "filiere": "H01PAN01:LANGUE FRANCAISE (PROFESSEUR POUR SOURDS-MUETS)",
+    "etablissement": "ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 197,
+    "filiere": "H01PML01:LANGUE FRANCAISE (P.E.M)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 198,
+    "filiere": "H01PPL01:FRANCAIS (P.E.P)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 199,
+    "filiere": "H01PSL01:LANGUE FRANCAISE (P.E.S)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 200,
+    "filiere": "H02PSN01:LANGUE ESPAGNOLE (PROFESSEUR DE L ENSEIGNEMENT SECONDAIRE)",
+    "etablissement": "UNIVERSITE D ORAN 2 (ECOLE NORMALE SUPERIEURE D ORAN)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 201,
+    "filiere": "H06FCL05:ANGLAIS TECHNIQUE (FORMATION CONTINUE)",
+    "etablissement": "CENTRE DE FORMATION CONTINUE LAGHOUAT(LAGHOUAT)",
+    "note": 15.48,
+    "priorite": 3
+  },
+  {
+    "id": 202,
+    "filiere": "H06PAN01:LANGUE ANGLAISE (PROFESSEUR POUR SOURDS-MUETS)",
+    "etablissement": "ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 203,
+    "filiere": "H06PML01:LANGUE ANGLAISE (P.E.M)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 204,
+    "filiere": "H06PPL01:LANGUE ANGLAISE (P.E.P)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 205,
+    "filiere": "H06PSL01:LANGUE ANGLAISE (P.E.S)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 206,
+    "filiere": "H07LAL01:LANGUE ITALIENNE [FRL/FRR]",
+    "etablissement": "UNIV. BLIDA 2(BLIDA)",
+    "note": 13.97,
+    "priorite": 3
+  },
+  {
+    "id": 207,
+    "filiere": "HF0LAN01:LANGUE ANGLAISE + SCIENCES FINANCIERES ET COMPTABILITE",
+    "etablissement": "UNIV. TLEMCEN(TLEMCEN)",
+    "note": 15.48,
+    "priorite": 2
+  },
+  {
+    "id": 208,
+    "filiere": "I00PAN01:HISTOIRE ET GEOGRAPHIE (PROFESSEUR POUR SOURDS-MUETS)",
+    "etablissement": "ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 209,
+    "filiere": "I00PML01:HISTOIRE GEOGRAPHIE (P.E.M)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 210,
+    "filiere": "I00PSL01:HISTOIRE GEOGRAPHIE (P.E.S)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 211,
+    "filiere": "I00TUT01:PERSONNEL DE LA COMMUNICATION ET DES RELATIONS PUBLIQUES DANS LES INSTITUTIONS DE JEUNESSE",
+    "etablissement": "ECOLE SUPERIEURE DES SCIENCES ET DES TECHNOLOGIES D ENCADREMENT DE LA JEUNESSE ALGER(ALGER)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 212,
+    "filiere": "I00TUT02:PERSONNEL D ENCADREMENT ET D ORIENTATION DES JEUNES",
+    "etablissement": "ECOLE SUPERIEURE DES SCIENCES ET DES TECHNOLOGIES D ENCADREMENT DE LA JEUNESSE ALGER(ALGER)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 213,
+    "filiere": "I02PAN01:SCIENCES ISLAMIQUES (PROFESSEUR POUR SOURDS-MUETS)",
+    "etablissement": "ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 214,
+    "filiere": "I02PML01:SCIENCES ISLAMIQUES (PROFESSEUR DE L ENSEIGNEMENT MOYEN)",
+    "etablissement": "UNIVERSITE ALGER 1 (ECOLE NORMALE SUPERIEURE DE BOUZAREAH)(ALGER)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 215,
+    "filiere": "I02PSL01:SCIENCES ISLAMIQUES (PROFESSEUR DE L ENSEIGNEMENT SECONDAIRE)",
+    "etablissement": "UNIVERSITE ALGER 1 (ECOLE NORMALE SUPERIEURE DE BOUZAREAH)(ALGER)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 216,
+    "filiere": "I20LAL02:SCIENCES ISLAMIQUES [FRL/FRR]",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 217,
+    "filiere": "I20LAN01:SCIENCES ISLAMIQUES",
+    "etablissement": "UNIV. SCI ISLAMIQUES EMIR (E.A.K)(CONSTANTINE)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 218,
+    "filiere": "IC0LAN01:INFORMATIQUE + SCIENCES DE L INFORMATION ET DE LA COMMUNICATION",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 14.15,
+    "priorite": 1
+  },
+  {
+    "id": 219,
+    "filiere": "IF0LAN01:SCIENCES ECONOMIQUES + SCIENCES DE L INFORMATION ET DE LA COMMUNICATION",
+    "etablissement": "UNIV. ALGER 3(ALGER)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 220,
+    "filiere": "IG0LAN01:SCIENCES DE L INFORMATION ET DE LA COMMUNICATION + SCIENCES POLITIQUES",
+    "etablissement": "UNIV. ALGER 3(ALGER)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 221,
+    "filiere": "IH0LAN01:SCIENCES DE L INFORMATION ET DE LA COMMUNICATION + LANGUE ITALIENNE",
+    "etablissement": "UNIV. BLIDA 2(BLIDA)",
+    "note": 13.97,
+    "priorite": 3
+  },
+  {
+    "id": 222,
+    "filiere": "J00LAL01:SCIENCES ET TECHNIQUES DES ACTIVITES PHYSIQUES ET SPORTIVES [FRL/FRR]",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 223,
+    "filiere": "J00LAN01:SCIENCES ET TECHNIQUES DES ACTIVITES PHYSIQUES ET SPORTIVES",
+    "etablissement": "UNIV. ALGER 3(ALGER)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 224,
+    "filiere": "J00PAN01:EDUCATION PHYSIQUE ET SPORTIVE (PROFESSEUR POUR SOURDS-MUETS)",
+    "etablissement": "ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 225,
+    "filiere": "J00PML01:EDUCATION PHYSIQUE ET SPORTIVE (P.E.M)",
+    "etablissement": "ANNEXE DJELFA (ECOLE NORMALE SUPERIEURE DE KOUBA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 226,
+    "filiere": "J00PPL01:EDUCATION PHYSIQUE ET SPORTIVE (P.E.P)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 227,
+    "filiere": "J00PSL01:EDUCATION PHYSIQUE ET SPORTIVE (P.E.S)",
+    "etablissement": "ANNEXE DJELFA (ECOLE NORMALE SUPERIEURE DE KOUBA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 228,
+    "filiere": "K00IAN01:PRODUCTION ET DESIGN NUMERIQUE INDUSTRIE DU CONTENU NUMERIQUE",
+    "etablissement": "UNIV. SAIDA(SAIDA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 229,
+    "filiere": "K00LAL01:ARTS [FRL/FRR]",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 230,
+    "filiere": "K00LAN01:ARTS",
+    "etablissement": "UNIV. ORAN 1(ORAN)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 231,
+    "filiere": "K00PML01:DESSIN (PROFESSEUR DE L ENSEIGNEMENT MOYEN)",
+    "etablissement": "UNIV. TIARET (ECOLE NORMALE SUPERIEURE D ORAN)(TIARET)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 232,
+    "filiere": "K00PMN01:MUSIQUE (P.E.M)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE KOUBA (E.N.S)(ALGER)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 233,
+    "filiere": "K00PSN01:MUSIQUE (P.E.S)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE KOUBA (E.N.S)(ALGER)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 234,
+    "filiere": "K00PSN03:DESSIN (PROFESSEUR DE L ENSEIGNEMENT SECONDAIRE)",
+    "etablissement": "UNIV. TIARET (ECOLE NORMALE SUPERIEURE D ORAN)(TIARET)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 235,
+    "filiere": "K00TUT02:MUSIQUE (SCIENCES MUSICALES)",
+    "etablissement": "INSTITUT NATIONAL SUPERIEUR DE MUSIQUE MOHAMED FAWZI - ALGER",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 236,
+    "filiere": "K00TUT03:ARTS VISUELS (PEINTURE - SCULPTURE - DESIGN GRAPHIQUE - DESIGN ESPACE)",
+    "etablissement": "ECOLE SUPERIEURE DES BEAUX-ARTS - ALGER",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 237,
+    "filiere": "K00TUT04:ARTS AUDIOVISUELS (CINEMA) ,ARTS VISUELS (SCENARIO - IMAGE - SON - GESTION DE PRODUCTION)",
+    "etablissement": "INSTITUT NATIONAL SUPERIEUR DU CINEMA MOHAMED LAKHDAR HAMINA - KOLEA TIPAZA",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 238,
+    "filiere": "L00PAN01:LANGUE ARABE (PROFESSEUR POUR SOURDS-MUETS)",
+    "etablissement": "ECOLE SUPERIEURE DES PROFESSEURS POUR SOURDS-MUETS",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 239,
+    "filiere": "L00PML01:LANGUE ET LITTERATURE ARABES (P.E.M)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 240,
+    "filiere": "L00PPL01:ARABE (P.E.P)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 241,
+    "filiere": "L00PSL01:LANGUE ET LITTERATURE ARABES (P.E.S)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 242,
+    "filiere": "M00PMN01:LANGUE AMAZIGHE (P.E.M)",
+    "etablissement": "ANNEXE TIZI OUZOU (ECOLE NORMALE SUPERIEURE DE BOUZAREAH)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 243,
+    "filiere": "M00PPL01:LANGUE AMAZIGHE (P.E.P)",
+    "etablissement": "ECOLE NORMALE SUPERIEURE DE BOUZAREAH",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 244,
+    "filiere": "M00PSN01:LANGUE AMAZIGHE (P.E.S)",
+    "etablissement": "ANNEXE TIZI OUZOU (ECOLE NORMALE SUPERIEURE DE BOUZAREAH)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 245,
+    "filiere": "N00TUT01:CONSERVATION ET RESTAURATION DES BIENS CULTURELS",
+    "etablissement": "ECOLE NATIONALE SUPERIEURE DE CONSERVATION ET DE RESTAURATION DES BIENS CULTURELS(TIPAZA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 246,
+    "filiere": "N01FPN02:GESTION DES TECHNIQUES URBAINES (GENIE URBAIN) (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. JIJEL(JIJEL)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 247,
+    "filiere": "N01FPN03:GESTION DES TECHNIQUES URBAINES (GESTION DES VILLES) (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. JIJEL(JIJEL)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 248,
+    "filiere": "N01FPN04:GESTION DES TECHNIQUES URBAINES (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. OUM EL BOUAGHI",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 249,
+    "filiere": "N01IAN01:GESTION DES TECHNIQUES URBAINES",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 250,
+    "filiere": "N01LAL01:GESTION DES TECHNIQUES URBAINES [FRL/FRR]",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 251,
+    "filiere": "N02FPN01:MANAGEMENT DES PROJETS DE CONSTRUCTION (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. BATNA 1(BATNA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 252,
+    "filiere": "N02FPN02:MANAGEMENT DES PROJETS DE CONSTRUCTION (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. GUELMA(GUELMA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 253,
+    "filiere": "N02FPN03:MANAGEMENT DES PROJETS DE CONSTRUCTION (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. BISKRA(BISKRA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 254,
+    "filiere": "N02FPN04:MANAGEMENT DES PROJETS DE CONSTRUCTION (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. MSILA(MSILA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 255,
+    "filiere": "N02FPN05:MANAGEMENT DES PROJETS DE CONSTRUCTION (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. TEBESSA(TEBESSA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 256,
+    "filiere": "N02FPN06:METIERS DE LA VILLE (DESIGN ET ARCHITECTURE INTERIEURE) (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. OUM EL BOUAGHI",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 257,
+    "filiere": "N02FPN07:METIERS DE LA VILLE (INFOGRAPHIE EN ARCHITECTURE) (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. OUM EL BOUAGHI",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 258,
+    "filiere": "N02FPN08:MANAGEMENT DES PROJETS DE CONSTRUCTION (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. BECHAR(BECHAR)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 259,
+    "filiere": "N02FPN09:MANAGEMENT DES PROJETS DE CONSTRUCTION (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. OUM EL BOUAGHI",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 260,
+    "filiere": "N02IAN01:METIERS DE LA VILLE",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 261,
+    "filiere": "N02LAN01:MANAGEMENT DES PROJETS DE CONSTRUCTION",
+    "etablissement": "UNIV. CONSTANTINE 3",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 262,
+    "filiere": "N02TPN01:METIERS DE LA VILLE GEOMETRE TOPOGRAPHE (FORMATIONS PROFESSIONNALISANTES)",
+    "etablissement": "UNIV. TLEMCEN I.S.T.A",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 263,
+    "filiere": "N04LAL01:URBANISME [FRL/FRR]",
+    "etablissement": "UNIV. MSILA(MSILA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 264,
+    "filiere": "N05IAL01:ARCHITECTURE",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 265,
+    "filiere": "NA0LPN01:ARCHITECTURE + GENIE CIVIL",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 266,
+    "filiere": "NI0LAN01:ARCHITECTURE + SCIENCES SOCIALES (SOCIOLOGIE)",
+    "etablissement": "UNIV. BEJAIA(BEJAIA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 267,
+    "filiere": "P04VAL01:SCIENCES VETERINAIRES",
+    "etablissement": "UNIV. LAGHOUAT(LAGHOUAT)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 268,
+    "filiere": "P04VAN02:SCIENCES VETERINAIRES",
+    "etablissement": "INSTITUT VETERINAIRE UNIV.CONSTANTINE 1(CONSTANTINE)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 269,
+    "filiere": "P04VAN03:SCIENCES VETERINAIRES",
+    "etablissement": "INSTITUT VETERINAIRE UNIV.BATNA 1(BATNA)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 270,
+    "filiere": "P04VAN04:SCIENCES VETERINAIRES",
+    "etablissement": "INSTITUT VETERINAIRE UNIV. TIARET(TIARET)",
+    "note": 13.97,
+    "priorite": 1
+  },
+  {
+    "id": 271,
+    "filiere": "X01SANTE:INFIMIERS DE SANTE PUBLIQUE",
+    "etablissement": "INFSPM MEDEA(MEDEA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 272,
+    "filiere": "X02SANTE:DIETETICIENS DE SANTE PUBLIQUE",
+    "etablissement": "INFSPM ALGER(ALGER)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 273,
+    "filiere": "X03SANTE:PROTHESISTES DENTAIRES DE SANTE PUBLIQUE",
+    "etablissement": "INFSPM BLIDA(BLIDA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 274,
+    "filiere": "X04SANTE:KINESITHERAPEUTES DE SANTE PUBLIQUE",
+    "etablissement": "INFSPM BLIDA(BLIDA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 275,
+    "filiere": "X05SANTE:PEDICURE PODOLOGUE DE SANTE PUBLIQUE",
+    "etablissement": "INFSPM ALGER(ALGER)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 276,
+    "filiere": "X06SANTE:ERGOTHERAPEUTES DE SANTE PUBLIQUE",
+    "etablissement": "INFSPM SIDI BEL ABBES(SIDIBEL-ABBES)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 277,
+    "filiere": "X07SANTE:APPAREILLEURS ORTHOPEDISTES DE SANTE PUBLIQUE",
+    "etablissement": "INFSPM ALGER(ALGER)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 278,
+    "filiere": "X08SANTE:PSYCHOMOTRICIENS DE SANTE PUBLIQUE",
+    "etablissement": "INFSPM ALGER(ALGER)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 279,
+    "filiere": "X09SANTE:MANIPULATEURS EN IMAGERIE MEDICALE DE SANTE PUBLIQUE",
+    "etablissement": "INFSPM MEDEA(MEDEA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 280,
+    "filiere": "X10SANTE:LABORANTINS DE SANTE PUBLIQUE",
+    "etablissement": "INFSPM MEDEA(MEDEA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 281,
+    "filiere": "X11SANTE:PREPARATEURS EN PHARMACIE DE SANTE PUBLIQUE",
+    "etablissement": "INFSPM MEDEA(MEDEA)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 282,
+    "filiere": "X12SANTE:HYGIENISTES DE SANTE PUBLIQUE",
+    "etablissement": "INFSPM TIARET(TIARET)",
+    "note": 13.97,
+    "priorite": 2
+  },
+  {
+    "id": 283,
+    "filiere": "Z01SANTE:PERSONNEL D ANESTHESIE DE SANTE PUBLIQUE",
+    "etablissement": "INFSPM BLIDA(BLIDA)",
+    "note": 13.97,
+    "priorite": 2
+  }
+]

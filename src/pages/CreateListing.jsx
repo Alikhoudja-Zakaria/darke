@@ -8,6 +8,7 @@ import { db } from '../firebase/config';
 import { doc, getDoc } from 'firebase/firestore';
 import { compressImage } from '../utils/imageCompression';
 import { wilayas } from '../data/cities';
+import { formatPrice, formatPriceCentimes } from '../utils/formatPrice';
 import { FiUploadCloud, FiX, FiCheck, FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import './CreateListing.css';
 
@@ -15,11 +16,12 @@ const CreateListing = () => {
   const { id } = useParams();
   const { user } = useAuth();
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [draftRestored, setDraftRestored] = useState(false);
 
   const [formData, setFormData] = useState({
     category: 'long-term',
@@ -49,6 +51,35 @@ const CreateListing = () => {
           const docSnap = await getDoc(docRef);
           if (docSnap.exists()) {
             const data = docSnap.data();
+
+            // Ownership check (IDOR protection)
+            if (user && data.userId !== user.uid) {
+              alert(t('post.error_unauthorized') || "Vous n'êtes pas autorisé à modifier cette annonce.");
+              navigate('/dashboard');
+              return;
+            }
+
+            // Reverse-calculate price scale and display price from stored raw DA
+            let displayPrice = data.price !== undefined && data.price !== null ? data.price : '';
+            if ((!data.category || data.category === 'long-term') && data.price !== undefined && data.price !== null && data.price !== '') {
+              const rawPrice = Number(data.price);
+              if (rawPrice >= 1000000000) {
+                setPriceScale('milliard');
+                displayPrice = parseFloat((rawPrice / 1000000000).toFixed(6));
+              } else if (rawPrice >= 1000000) {
+                setPriceScale('millions');
+                displayPrice = parseFloat((rawPrice / 1000000).toFixed(6));
+              } else if (rawPrice >= 1000) {
+                setPriceScale('mille');
+                displayPrice = parseFloat((rawPrice / 1000).toFixed(6));
+              } else {
+                setPriceScale('da');
+                displayPrice = rawPrice;
+              }
+            } else if (data.category === 'leisure') {
+              setPriceScale('da');
+            }
+
             setFormData({
               category: data.category || 'long-term',
               transactionType: data.transactionType || 'rent',
@@ -61,13 +92,16 @@ const CreateListing = () => {
               furnished: data.furnished || false,
               city: data.city || wilayas[0].name,
               address: data.address || '',
-              price: data.price || '',
+              price: displayPrice,
               priceUnit: data.priceUnit || 'per-month',
             });
             if (data.images && data.images.length > 0) {
               setImages(data.images);
               setImagePreviews(data.images);
             }
+          } else {
+            setError(t('post.error_fetch'));
+            navigate('/dashboard');
           }
         } catch (err) {
           console.error("Error fetching listing:", err);
@@ -75,8 +109,61 @@ const CreateListing = () => {
         }
       };
       fetchListing();
+    } else {
+      // Restore draft if available for new listing
+      try {
+        const savedDraft = localStorage.getItem('darkoum_listing_draft');
+        if (savedDraft) {
+          const parsed = JSON.parse(savedDraft);
+          if (parsed?.formData?.title || parsed?.formData?.price || parsed?.formData?.description) {
+            setFormData(prev => ({ ...prev, ...parsed.formData }));
+            if (parsed.priceScale) setPriceScale(parsed.priceScale);
+            if (parsed.step) setStep(parsed.step);
+            setDraftRestored(true);
+          }
+        }
+      } catch (e) {
+        console.warn("Could not parse draft:", e.message);
+      }
     }
-  }, [id, t]);
+  }, [id, user, navigate, t]);
+
+  // Auto-save draft on changes when creating new listing
+  React.useEffect(() => {
+    if (!id && (formData.title || formData.price || formData.description || formData.surface)) {
+      try {
+        localStorage.setItem('darkoum_listing_draft', JSON.stringify({ formData, priceScale, step }));
+      } catch (err) {
+        console.warn('Could not auto-save draft:', err);
+      }
+    }
+  }, [id, formData, priceScale, step]);
+
+  const clearDraft = () => {
+    try {
+      localStorage.removeItem('darkoum_listing_draft');
+    } catch (err) {
+      console.warn('Could not remove draft:', err);
+    }
+    setDraftRestored(false);
+    setFormData({
+      category: 'long-term',
+      transactionType: 'rent',
+      propertyType: 'apartment',
+      title: '',
+      description: '',
+      rooms: 1,
+      bathrooms: 1,
+      surface: '',
+      furnished: false,
+      city: wilayas[0].name,
+      address: '',
+      price: '',
+      priceUnit: 'per-month',
+    });
+    setPriceScale('millions');
+    setStep(1);
+  };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -88,7 +175,7 @@ const CreateListing = () => {
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
-    if (images.length + files.length > 3) {
+    if (images.length + files.length > 10) {
       setError(t('post.form_photos_limit'));
       return;
     }
@@ -138,11 +225,12 @@ const CreateListing = () => {
       // 2. Prepare Data
       let finalPrice = parseFloat(formData.price);
       if (formData.category === 'long-term') {
-        if (priceScale === 'mille') {
+        const scale = priceScale ? priceScale.toLowerCase() : '';
+        if (scale === 'mille') {
           finalPrice = finalPrice * 1000;
-        } else if (priceScale === 'millions') {
+        } else if (scale === 'millions') {
           finalPrice = finalPrice * 1000000;
-        } else if (priceScale === 'milliard') {
+        } else if (scale === 'milliard') {
           finalPrice = finalPrice * 1000000000;
         }
       }
@@ -165,6 +253,11 @@ const CreateListing = () => {
         navigate(`/listing/${id}`);
       } else {
         const listingId = await createListing(listingData);
+        try {
+          localStorage.removeItem('darkoum_listing_draft');
+        } catch (err) {
+          console.warn('Could not remove draft:', err);
+        }
         navigate(`/listing/${listingId}`);
       }
     } catch (err) {
@@ -219,10 +312,23 @@ const CreateListing = () => {
         ))}
       </div>
 
+      {draftRestored && (
+        <div style={{ marginBottom: '20px', padding: '12px 18px', backgroundColor: '#EFF6FF', color: '#1E40AF', borderRadius: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.9rem', border: '1px solid #BFDBFE' }}>
+          <span>📝 {t('post.draft_restored') || 'Brouillon récupéré automatiquement.'}</span>
+          <button 
+            type="button" 
+            onClick={clearDraft} 
+            style={{ color: '#DC2626', fontWeight: 600, fontSize: '0.85rem', textDecoration: 'underline' }}
+          >
+            {t('post.discard_draft') || 'Effacer le brouillon'}
+          </button>
+        </div>
+      )}
+
       {error && <div className="alert-error" style={{ marginBottom: '20px', padding: '12px', backgroundColor: '#FEE2E2', color: '#DC2626', borderRadius: '8px' }}>{error}</div>}
 
-      <div className="card wizard-card" style={{ padding: '32px', position: 'relative' }}>
-        <button className="btn-close" onClick={() => navigate('/')} style={{ position: 'absolute', top: '16px', right: '16px', background: 'none', border: 'none', fontSize: '24px', cursor: 'pointer', color: '#6B7280' }}>
+      <div className="card wizard-card">
+        <button className="btn-close" onClick={() => navigate('/')} style={{ position: 'absolute', top: '16px', insetInlineEnd: '16px', background: 'none', border: 'none', fontSize: '24px', cursor: 'pointer', color: '#6B7280' }}>
           <FiX />
         </button>
         {step === 1 && (
@@ -241,12 +347,12 @@ const CreateListing = () => {
                 <p>{t('post.rent_desc')}</p>
               </label>
 
-              <label className={`category-card ${formData.category === 'long-term' && formData.transactionType === 'buy' ? 'selected' : ''}`}>
+              <label className={`category-card ${formData.category === 'long-term' && (formData.transactionType === 'buy' || formData.transactionType === 'sale') ? 'selected' : ''}`}>
                 <input 
                   type="radio" 
                   name="category_type" 
-                  onChange={() => setFormData({...formData, category: 'long-term', transactionType: 'buy', priceUnit: 'total'})}
-                  checked={formData.category === 'long-term' && formData.transactionType === 'buy'}
+                  onChange={() => setFormData({...formData, category: 'long-term', transactionType: 'sale', priceUnit: 'total'})}
+                  checked={formData.category === 'long-term' && (formData.transactionType === 'buy' || formData.transactionType === 'sale')}
                 />
                 <h3>{t('post.sale')}</h3>
                 <p>{t('post.sale_desc')}</p>
@@ -372,7 +478,7 @@ const CreateListing = () => {
                 required
               >
                 {wilayas.map(city => (
-                  <option key={city.id} value={city.name}>{city.name}</option>
+                  <option key={city.id} value={city.name}>{lang === 'ar' ? city.nameAr : city.name}</option>
                 ))}
               </select>
             </div>
@@ -395,7 +501,7 @@ const CreateListing = () => {
           <div className="wizard-step">
             <div className="form-group">
               <label className="label">{t('post.form_price')}</label>
-              <div style={{ display: 'flex', gap: '16px' }}>
+              <div className="price-input-row">
                 <input 
                   type="number" 
                   name="price" 
@@ -411,12 +517,11 @@ const CreateListing = () => {
                 {formData.category === 'long-term' && (
                   <select 
                     name="priceScale" 
-                    className="input-field" 
-                    value={priceScale} 
+                    className="input-field price-scale-select" 
+                    value={priceScale?.toLowerCase() === 'da' ? 'da' : priceScale} 
                     onChange={(e) => setPriceScale(e.target.value)}
-                    style={{ width: '150px' }}
                   >
-                    <option value="DA">DA</option>
+                    <option value="da">DA</option>
                     <option value="mille">{t('listing.thousand')}</option>
                     <option value="millions">{t('listing.million')}</option>
                     <option value="milliard">{t('listing.billion')}</option>
@@ -426,16 +531,39 @@ const CreateListing = () => {
                 {formData.category === 'leisure' && (
                   <select 
                     name="priceUnit" 
-                    className="input-field" 
+                    className="input-field price-scale-select" 
                     value={formData.priceUnit} 
                     onChange={handleChange}
-                    style={{ width: '150px' }}
                   >
-                    <option value="per-night">/ Nuit</option>
-                    <option value="per-week">/ Semaine</option>
+                    <option value="per-night">{t('post.per_night')}</option>
+                    <option value="per-week">{t('post.per_week')}</option>
                   </select>
                 )}
               </div>
+              {(() => {
+                if (!formData.price || isNaN(Number(formData.price)) || Number(formData.price) <= 0) return null;
+                const rawVal = parseFloat(formData.price);
+                let computed = rawVal;
+                if (formData.category === 'long-term') {
+                  const scale = priceScale ? priceScale.toLowerCase() : '';
+                  if (scale === 'mille') computed = rawVal * 1000;
+                  else if (scale === 'millions') computed = rawVal * 1000000;
+                  else if (scale === 'milliard') computed = rawVal * 1000000000;
+                }
+                const centimesText = formatPriceCentimes(computed, lang);
+                return (
+                  <div style={{ marginTop: '14px', padding: '12px 16px', backgroundColor: '#F0FDFA', border: '1px solid #CCFBF1', borderRadius: '10px', fontSize: '0.92rem' }}>
+                    <div style={{ color: '#0F766E', fontWeight: 600 }}>
+                      {lang === 'ar' ? 'السعر النهائي المحتسب:' : 'Prix total calculé :'} <span style={{ fontSize: '1.05rem', color: '#0D9488' }}>{formatPrice(computed, lang)}</span>
+                    </div>
+                    {centimesText && (
+                      <div style={{ marginTop: '4px', color: '#047857', fontSize: '0.88rem' }}>
+                        {lang === 'ar' ? 'ما يعادله بالعامية (سنتيم):' : 'Équivalent en centimes :'} <strong>≈ {centimesText}</strong>
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
             </div>
           </div>
         )}
@@ -486,11 +614,11 @@ const CreateListing = () => {
           )}
           
           {step < 5 ? (
-            <button className="btn-primary" onClick={nextStep} style={{ marginLeft: 'auto' }}>
+            <button className="btn-primary" onClick={nextStep} style={{ marginInlineStart: 'auto' }}>
               {t('post.btn_next')} <FiChevronRight />
             </button>
           ) : (
-            <button className="btn-primary" onClick={handleSubmit} disabled={loading} style={{ marginLeft: 'auto' }}>
+            <button className="btn-primary" onClick={handleSubmit} disabled={loading} style={{ marginInlineStart: 'auto' }}>
               {loading ? (id ? t('post.btn_saving') : t('post.btn_publishing')) : (id ? t('post.btn_save') : t('post.btn_publish'))}
             </button>
           )}

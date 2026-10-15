@@ -31,28 +31,55 @@
     padding: 10px;
   }
   .listing-grid.grid .property-card .card-title {
-    font-size: 1rem !important;
-    margin-bottom: 4px !important;
-    white-space: nowrap;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
+    line-height: 1.25;
+    min-height: 2.5em;
   }
   .listing-grid.grid .property-card .card-price {
-    font-size: 0.95rem !important;
-    margin-bottom: 8px !important;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 4px;
   }
   .listing-grid.grid .property-card .price-unit {
-    display: block; /* Break line for unit if space is tight */
-    margin-left: 0 !important;
+    display: inline-block;
+    margin-inline-start: 4px;
+  }
+  .listing-grid.grid .property-card .price-centimes {
+    font-size: 0.72rem;
+  }
+  .listing-grid.grid .property-card .card-favorite-btn {
+    width: 30px;
+    height: 30px;
+    top: 8px;
+    right: 8px;
+  }
+  [dir="rtl"] .listing-grid.grid .property-card .card-favorite-btn {
+    right: auto;
+    left: 8px;
+  }
+  .listing-grid.grid .property-card .card-badges-top {
+    top: 8px;
+    left: 8px;
+  }
+  [dir="rtl"] .listing-grid.grid .property-card .card-badges-top {
+    left: auto;
+    right: 8px;
   }
   .listing-grid.grid .property-card .card-specs {
-    font-size: 0.8rem;
-    gap: 4px;
+    font-size: 0.78rem;
+    gap: 6px;
     flex-wrap: wrap;
+    padding-top: 8px;
+    margin-top: 6px;
   }
   .listing-grid.grid .property-card .card-location {
-    font-size: 0.8rem;
-    margin-bottom: 8px;
+    font-size: 0.78rem;
+    margin-bottom: 6px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -148,6 +175,7 @@
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--text-secondary);
+  margin-inline-start: 4px;
 }
 
 .card-title {
@@ -185,4 +213,20 @@
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--text-secondary);
+}
+
+.price-centimes {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
 }

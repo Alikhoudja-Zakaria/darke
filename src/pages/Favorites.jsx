@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useFavorites } from '../hooks/useFavorites';
 import { useRecentListings } from '../hooks/useRecentListings';
@@ -27,6 +27,7 @@ const Favorites = () => {
     try {
       const resultsMap = new Map();
       const chunkSize = 30; // Firestore limit
+      const chunkPromises = [];
       
       for (let i = 0; i < idsArray.length; i += chunkSize) {
         const chunk = idsArray.slice(i, i + chunkSize);
@@ -35,10 +36,33 @@ const Favorites = () => {
           where(documentId(), 'in', chunk),
           where('status', '==', 'active')
         );
-        const snapshot = await getDocs(q);
+        chunkPromises.push(getDocs(q));
+      }
+
+      const snapshots = await Promise.all(chunkPromises);
+      snapshots.forEach(snapshot => {
         snapshot.forEach(docSnap => {
           resultsMap.set(docSnap.id, { id: docSnap.id, ...docSnap.data() });
         });
+      });
+      
+      // Check local backup fallback for any missing IDs
+      const missingIds = idsArray.filter(id => !resultsMap.has(id));
+      if (missingIds.length > 0) {
+        try {
+          const res = await fetch('/initial_listings.json');
+          if (res.ok) {
+            const data = await res.json();
+            data.forEach(item => {
+              const itemId = String(item.ouedknissId || item.id);
+              if (missingIds.includes(itemId)) {
+                resultsMap.set(itemId, { id: itemId, ...item });
+              }
+            });
+          }
+        } catch (fallbackError) {
+          console.warn("Could not load from fallback dataset in Favorites:", fallbackError.message);
+        }
       }
       
       // Return in the exact order of the provided array
@@ -46,7 +70,21 @@ const Favorites = () => {
         .map(id => resultsMap.get(id))
         .filter(Boolean);
     } catch (error) {
-      console.error("Error fetching listings:", error);
+      console.warn("Firestore error fetching listings, checking fallback dataset:", error);
+      try {
+        const res = await fetch('/initial_listings.json');
+        if (res.ok) {
+          const data = await res.json();
+          return idsArray
+            .map(id => {
+              const item = data.find(l => String(l.ouedknissId) === String(id) || String(l.id) === String(id));
+              return item ? { id: item.ouedknissId || item.id, ...item } : null;
+            })
+            .filter(Boolean);
+        }
+      } catch (fallbackErr) {
+        console.warn("Could not load from fallback dataset:", fallbackErr.message);
+      }
       return [];
     }
   };

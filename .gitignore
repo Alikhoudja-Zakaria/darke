@@ -26,3 +26,12 @@ dist-ssr
 .env.local
 .env.*.local
 
+# Python & Virtual Environments
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+raw_pdf_text.txt
+choix_opus_raw.txt
+
