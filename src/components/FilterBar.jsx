@@ -4,33 +4,36 @@ import { useLanguage } from '../context/LanguageContext';
 import { wilayas } from '../data/cities';
 import './FilterBar.css';
 
-const FilterBar = ({ onFilterChange, forceLeisureMode }) => {
+const FilterBar = ({ filters: controlledFilters, onFilterChange, forceLeisureMode }) => {
   const { t, lang } = useLanguage();
   const [showMore, setShowMore] = useState(false);
-  const [filters, setFilters] = useState({
+  const [internalFilters, setInternalFilters] = useState({
     city: '',
     propertyType: '',
     minPrice: '',
     maxPrice: '',
     rooms: '',
-    furnished: ''
+    furnished: '',
+    transactionType: 'all'
   });
+
+  const filters = controlledFilters !== undefined ? controlledFilters : internalFilters;
 
   const handleChange = (key, value) => {
     const newFilters = { ...filters, [key]: value };
-    setFilters(newFilters);
-    onFilterChange(newFilters);
+    setInternalFilters(newFilters);
+    onFilterChange?.(newFilters);
   };
 
   const resetFilters = () => {
     const empty = {
       city: '', propertyType: '', minPrice: '', maxPrice: '', rooms: '', furnished: '', transactionType: 'all'
     };
-    setFilters(empty);
-    onFilterChange(empty);
+    setInternalFilters(empty);
+    onFilterChange?.(empty);
   };
 
-  const activeCount = Object.entries(filters).filter(([key, val]) => {
+  const activeCount = Object.entries(filters || {}).filter(([key, val]) => {
     if (key === 'transactionType') return val && val !== 'all';
     return val !== '' && val !== undefined && val !== null;
   }).length;
@@ -101,7 +104,7 @@ const FilterBar = ({ onFilterChange, forceLeisureMode }) => {
         <div className="filter-expanded">
           <select 
             className="filter-select"
-            value={filters.city}
+            value={filters?.city || ''}
             aria-label={t('filters.city') || 'Ville'}
             onChange={(e) => handleChange('city', e.target.value)}
           >
@@ -115,7 +118,7 @@ const FilterBar = ({ onFilterChange, forceLeisureMode }) => {
 
           <select 
             className="filter-select"
-            value={filters.propertyType}
+            value={filters?.propertyType || ''}
             onChange={(e) => handleChange('propertyType', e.target.value)}
           >
             <option value="">{t('filters.property_type')}</option>
@@ -132,7 +135,7 @@ const FilterBar = ({ onFilterChange, forceLeisureMode }) => {
               type="number" 
               placeholder="Min DA" 
               className="filter-input"
-              value={filters.minPrice}
+              value={filters?.minPrice || ''}
               onChange={(e) => handleChange('minPrice', e.target.value)}
             />
             <span>-</span>
@@ -140,13 +143,13 @@ const FilterBar = ({ onFilterChange, forceLeisureMode }) => {
               type="number" 
               placeholder="Max DA" 
               className="filter-input"
-              value={filters.maxPrice}
+              value={filters?.maxPrice || ''}
               onChange={(e) => handleChange('maxPrice', e.target.value)}
             />
           </div>
           <select 
             className="filter-select"
-            value={filters.rooms}
+            value={filters?.rooms || ''}
             onChange={(e) => handleChange('rooms', e.target.value)}
           >
             <option value="">{t('filters.rooms')}</option>
@@ -158,7 +161,7 @@ const FilterBar = ({ onFilterChange, forceLeisureMode }) => {
 
           <select 
             className="filter-select"
-            value={filters.furnished}
+            value={filters?.furnished || ''}
             onChange={(e) => handleChange('furnished', e.target.value)}
           >
             <option value="">{t('filters.furnished')}</option>

@@ -13,14 +13,20 @@ const normalizeText = (text) => {
     .trim();
 };
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearch, value }) => {
   const { t, lang } = useLanguage();
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(value || '');
   const [isOpen, setIsOpen] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const wrapperRef = useRef(null);
   const debounceTimerRef = useRef(null);
+
+  useEffect(() => {
+    if (value !== undefined && value !== query) {
+      setQuery(value);
+    }
+  }, [value, query]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
